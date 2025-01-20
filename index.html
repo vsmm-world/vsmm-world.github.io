@@ -16,39 +16,42 @@
     <link rel="preconnect" href="https://api.github.com">
 </head>
 
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <h1>Ravindra Valand</h1>
+<body class="page-wrapper">
+    <header class="site-header">
+        <nav class="main-nav">
+            <div class="site-logo">
+                <h1 class="site-title">Ravindra Valand</h1>
             </div>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
             </button>
-            <ul class="nav-links">
-                <li><a href="#about" aria-label="About section">About</a></li>
-                <li><a href="#skills" aria-label="Skills section">Skills</a></li>
-                <li><a href="#projects" aria-label="Projects section">Projects</a></li>
-                <li><a href="#github" aria-label="GitHub section">GitHub</a></li>
-                <li><a href="#contact" aria-label="Contact section">Contact</a></li>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#about" class="nav-link" aria-label="About section">About</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link" aria-label="Skills section">Skills</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link" aria-label="Projects section">Projects</a>
+                </li>
+                <li class="nav-item"><a href="#github" class="nav-link" aria-label="GitHub section">GitHub</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link" aria-label="Contact section">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="about" class="section">
+    <main class="main-content">
+        <section id="about" class="section about-section">
             <div class="container">
-                <h2>About Me</h2>
+                <h2 class="section-title">About Me</h2>
                 <div class="about-content">
-                    <img src="assets/images/Ravindra-Valand.png" alt="Ravindra Valand" class="profile-img"
+                    <img src="assets/images/Ravindra-Valand.png" alt="Ravindra Valand" class="profile-image"
                         loading="lazy">
-                    <div class="about-text">
-                        <p>Hello! I'm Ravindra Valand, a passionate Full Stack Developer with expertise in modern web
+                    <div class="about-description">
+                        <p class="about-text">Hello! I'm Ravindra Valand, a passionate Full Stack Developer with
+                            expertise in modern web
                             technologies. I specialize in creating robust and scalable applications that solve
                             real-world problems.</p>
-                        <p>With a strong foundation in both frontend and backend development, I enjoy taking on
+                        <p class="about-text">With a strong foundation in both frontend and backend development, I enjoy
+                            taking on
                             challenging projects that push my boundaries and help me grow as a developer.</p>
                         <div class="tech-stack">
                             <span class="tech-badge">React</span>
@@ -58,19 +61,19 @@
                         </div>
                         <div class="social-links">
                             <a href="https://github.com/vsmm-world" target="_blank" rel="noopener noreferrer"
-                                aria-label="GitHub Profile">
+                                class="social-link" aria-label="GitHub Profile">
                                 <i class="fab fa-github"></i>
                             </a>
                             <a href="https://twitter.com/your-handle" target="_blank" rel="noopener noreferrer"
-                                aria-label="Twitter Profile">
+                                class="social-link" aria-label="Twitter Profile">
                                 <i class="fab fa-twitter"></i>
                             </a>
                             <a href="https://instagram.com/your-handle" target="_blank" rel="noopener noreferrer"
-                                aria-label="Instagram Profile">
+                                class="social-link" aria-label="Instagram Profile">
                                 <i class="fab fa-instagram"></i>
                             </a>
                             <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer"
-                                aria-label="LinkedIn Profile">
+                                class="social-link" aria-label="LinkedIn Profile">
                                 <i class="fab fa-linkedin"></i>
                             </a>
                         </div>
@@ -79,58 +82,58 @@
             </div>
         </section>
 
-        <section id="skills" class="section">
+        <section id="skills" class="section skills-section">
             <div class="container">
-                <h2>Skills & Expertise</h2>
-                <div class="skills-container">
-                    <div class="skill" data-aos="fade-up">
-                        <i class="fab fa-html5"></i>
-                        <span>HTML5</span>
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-card" data-aos="fade-up">
+                        <i class="fab fa-html5 skill-icon"></i>
+                        <span class="skill-name">HTML5</span>
                         <div class="skill-level">Advanced</div>
                     </div>
-                    <div class="skill" data-aos="fade-up" data-aos-delay="100">
-                        <i class="fab fa-css3-alt"></i>
-                        <span>CSS3</span>
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fab fa-css3-alt skill-icon"></i>
+                        <span class="skill-name">CSS3</span>
                         <div class="skill-level">Advanced</div>
                     </div>
-                    <div class="skill" data-aos="fade-up" data-aos-delay="200">
-                        <i class="fab fa-js"></i>
-                        <span>JavaScript</span>
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fab fa-js skill-icon"></i>
+                        <span class="skill-name">JavaScript</span>
                         <div class="skill-level">Expert</div>
                     </div>
-                    <div class="skill" data-aos="fade-up" data-aos-delay="300">
-                        <i class="fab fa-react"></i>
-                        <span>React</span>
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fab fa-react skill-icon"></i>
+                        <span class="skill-name">React</span>
                         <div class="skill-level">Expert</div>
                     </div>
-                    <div class="skill" data-aos="fade-up" data-aos-delay="400">
-                        <i class="fab fa-node-js"></i>
-                        <span>Node.js</span>
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fab fa-node-js skill-icon"></i>
+                        <span class="skill-name">Node.js</span>
                         <div class="skill-level">Advanced</div>
                     </div>
-                    <div class="skill" data-aos="fade-up" data-aos-delay="500">
-                        <i class="fas fa-database"></i>
-                        <span>MongoDB</span>
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="500">
+                        <i class="fas fa-database skill-icon"></i>
+                        <span class="skill-name">MongoDB</span>
                         <div class="skill-level">Advanced</div>
                     </div>
-                    <div class="skill" data-aos="fade-up" data-aos-delay="600">
-                        <i class="fab fa-git-alt"></i>
-                        <span>Git</span>
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="600">
+                        <i class="fab fa-git-alt skill-icon"></i>
+                        <span class="skill-name">Git</span>
                         <div class="skill-level">Advanced</div>
                     </div>
-                    <div class="skill" data-aos="fade-up" data-aos-delay="700">
-                        <i class="fab fa-docker"></i>
-                        <span>Docker</span>
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="700">
+                        <i class="fab fa-docker skill-icon"></i>
+                        <span class="skill-name">Docker</span>
                         <div class="skill-level">Intermediate</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="section">
+        <section id="projects" class="section projects-section">
             <div class="container">
-                <h2>Featured Projects</h2>
-                <div class="projects-filter">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="project-filters">
                     <button class="filter-btn active" data-filter="all">All</button>
                     <button class="filter-btn" data-filter="frontend">Frontend</button>
                     <button class="filter-btn" data-filter="backend">Backend</button>
@@ -143,22 +146,22 @@
             </div>
         </section>
 
-        <section id="github" class="section">
+        <section id="github" class="section github-section">
             <div class="container">
-                <h2>GitHub Activity</h2>
+                <h2 class="section-title">GitHub Activity</h2>
                 <div class="github-stats">
                     <div id="github-contributions" class="contribution-graph"></div>
                     <div id="github-stats-cards" class="stats-grid">
                         <div class="stats-card commits">
-                            <h3>Total Commits</h3>
+                            <h3 class="stats-title">Total Commits</h3>
                             <div class="stat-value" id="total-commits">Loading...</div>
                         </div>
                         <div class="stats-card repositories">
-                            <h3>Repositories</h3>
+                            <h3 class="stats-title">Repositories</h3>
                             <div class="stat-value" id="total-repos">Loading...</div>
                         </div>
                         <div class="stats-card contributions">
-                            <h3>Contributions</h3>
+                            <h3 class="stats-title">Contributions</h3>
                             <div class="stat-value" id="total-contributions">Loading...</div>
                         </div>
                     </div>
@@ -166,38 +169,42 @@
             </div>
         </section>
 
-        <section id="contact" class="section">
+        <section id="contact" class="section contact-section">
             <div class="container">
-                <h2>Let's Connect</h2>
-                <div class="contact-content">
-                    <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
+                <h2 class="section-title">Let's Connect</h2>
+                <div class="contact-wrapper">
+                    <p class="contact-intro">I'm always open to discussing new projects, creative ideas, or
+                        opportunities to be part of your
                         vision.</p>
                     <form id="contact-form" class="contact-form">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-textarea" required></textarea>
                         </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
+                        <button type="submit" class="btn btn-submit">Send Message</button>
                     </form>
                     <div class="contact-links">
-                        <a href="https://github.com/vsmm-world" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/vsmm-world" target="_blank" rel="noopener noreferrer"
+                            class="contact-link">
                             <i class="fab fa-github"></i> Follow on GitHub
                         </a>
-                        <a href="mailto:ravindra.valand@example.com">
+                        <a href="mailto:ravindra.valand@example.com" class="contact-link">
                             <i class="fas fa-envelope"></i> Send an Email
                         </a>
-                        <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+                        <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer"
+                            class="contact-link">
                             <i class="fab fa-linkedin"></i> Connect on LinkedIn
                         </a>
-                        <a href="https://calendly.com/ravindra-valand" target="_blank" rel="noopener noreferrer">
+                        <a href="https://calendly.com/ravindra-valand" target="_blank" rel="noopener noreferrer"
+                            class="contact-link">
                             <i class="far fa-calendar-alt"></i> Schedule a Meeting
                         </a>
                     </div>
@@ -206,35 +213,37 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about" class="footer-link">About</a></li>
+                        <li><a href="#skills" class="footer-link">Skills</a></li>
+                        <li><a href="#projects" class="footer-link">Projects</a></li>
+                        <li><a href="#contact" class="footer-link">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Connect</h3>
+                    <h3 class="footer-title">Connect</h3>
                     <div class="social-links">
-                        <a href="https://github.com/vsmm-world" target="_blank" rel="noopener noreferrer"><i
-                                class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer"><i
-                                class="fab fa-linkedin"></i></a>
-                        <a href="https://twitter.com/your-handle" target="_blank" rel="noopener noreferrer"><i
-                                class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/vsmm-world" target="_blank" rel="noopener noreferrer"
+                            class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer"
+                            class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://twitter.com/your-handle" target="_blank" rel="noopener noreferrer"
+                            class="social-link"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Ravindra Valand. All rights reserved.</p>
+                <p class="copyright">&copy; 2024 Ravindra Valand. All rights reserved.</p>
                 <div class="footer-stats">
-                    <span id="profile-views">Profile Views: <span id="view-count">0</span></span>
-                    <span id="last-updated">Last Updated: <span id="update-date"></span></span>
+                    <span class="stat-item" id="profile-views">Profile Views: <span id="view-count"
+                            class="stat-value">0</span></span>
+                    <span class="stat-item" id="last-updated">Last Updated: <span id="update-date"
+                            class="stat-value"></span></span>
                 </div>
             </div>
         </div>
@@ -270,17 +279,17 @@
                     card.setAttribute('data-category', repo.topics?.[0] || 'frontend');
                     card.innerHTML = `
                         <div class="project-header">
-                            <h3>${repo.name}</h3>
+                            <h3 class="project-title">${repo.name}</h3>
                             <span class="project-date">${new Date(repo.created_at).toLocaleDateString()}</span>
                         </div>
-                        <p>${repo.description || 'No description available'}</p>
+                        <p class="project-description">${repo.description || 'No description available'}</p>
                         <div class="project-tech-stack">
                             ${repo.topics?.map(topic => `<span class="tech-badge">${topic}</span>`).join('') || ''}
                         </div>
                         <div class="project-stats">
-                            <span><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
-                            <span><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
-                            <span><i class="fas fa-eye"></i> ${repo.watchers_count}</span>
+                            <span class="stat-item"><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
+                            <span class="stat-item"><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
+                            <span class="stat-item"><i class="fas fa-eye"></i> ${repo.watchers_count}</span>
                         </div>
                         <div class="project-links">
                             <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
@@ -304,8 +313,8 @@
                 projectsGrid.innerHTML = `
                     <div class="error-message">
                         <i class="fas fa-exclamation-circle"></i>
-                        <p>Failed to load projects. Please try again later.</p>
-                        <button onclick="fetchGitHubData()" class="retry-btn">Retry</button>
+                        <p class="error-text">Failed to load projects. Please try again later.</p>
+                        <button onclick="fetchGitHubData()" class="btn btn-retry">Retry</button>
                     </div>
                 `;
             }
