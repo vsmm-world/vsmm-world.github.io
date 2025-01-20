@@ -32,13 +32,18 @@
                 <div class="about-content">
                     <img src="assets/images/profile-placeholder.jpg" alt="Ravindra Valand" class="profile-img">
                     <div class="about-text">
-                        <p>Hello! I'm Ravindra Valand, a passionate Full Stack Developer with expertise in modern web technologies. I specialize in creating robust and scalable applications that solve real-world problems.</p>
-                        <p>With a strong foundation in both frontend and backend development, I enjoy taking on challenging projects that push my boundaries and help me grow as a developer.</p>
+                        <p>Hello! I'm Ravindra Valand, a passionate Full Stack Developer with expertise in modern web
+                            technologies. I specialize in creating robust and scalable applications that solve
+                            real-world problems.</p>
+                        <p>With a strong foundation in both frontend and backend development, I enjoy taking on
+                            challenging projects that push my boundaries and help me grow as a developer.</p>
                         <div class="social-links">
                             <a href="https://github.com/vsmm-world" target="_blank"><i class="fab fa-github"></i></a>
                             <a href="https://twitter.com/your-handle" target="_blank"><i class="fab fa-twitter"></i></a>
-                            <a href="https://instagram.com/your-handle" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="https://linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://instagram.com/your-handle" target="_blank"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://linkedin.com/in/your-profile" target="_blank"><i
+                                    class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                 </div>
@@ -110,7 +115,8 @@
             <div class="container">
                 <h2>Let's Connect</h2>
                 <div class="contact-content">
-                    <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+                    <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
+                        vision.</p>
                     <div class="contact-links">
                         <a href="https://github.com/vsmm-world" target="_blank">
                             <i class="fab fa-github"></i> Follow on GitHub
@@ -148,7 +154,7 @@
             try {
                 const response = await fetch(`https://api.github.com/users/${username}/repos`);
                 const repos = await response.json();
-                
+
                 const projectsGrid = document.getElementById('github-projects');
                 repos.slice(0, 6).forEach(repo => {
                     const card = document.createElement('div');
@@ -174,7 +180,7 @@
 
         // Update last modified date
         document.getElementById('update-date').textContent = new Date().toLocaleDateString();
-        
+
         // Initialize GitHub data fetch
         fetchGitHubData();
     </script>
