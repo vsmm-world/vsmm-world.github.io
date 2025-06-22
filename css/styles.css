@@ -909,3 +909,119 @@ body.dark-mode .btn-secondary {
     color: #fff;
     border: 2px solid #4361ee;
 }
+/* --- GitHub Activity Section Enhancements --- */
+.github-section .section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    font-size: 2.3rem;
+    color: #24292f;
+}
+.github-section .section-title .fab.fa-github {
+    font-size: 2.1rem;
+    color: #24292f;
+    filter: drop-shadow(0 2px 8px #4361ee22);
+}
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: rgba(255,255,255,0.92);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px 0 rgba(67, 97, 238, 0.13);
+    padding: 2rem 2.5rem 1.5rem 2.5rem;
+    position: relative;
+    overflow: visible;
+    min-height: 220px;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+.profile-avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 32px #4361ee33, 0 0 0 8px #e9ecff;
+    z-index: 2;
+    position: relative;
+}
+.profile-avatar::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle at 60% 40%, #4361ee33 0%, #7209b722 100%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+.profile-card .profile-meta {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.7rem;
+}
+.profile-meta h3 {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: #24292f;
+    margin-bottom: 0.2rem;
+}
+.profile-meta p {
+    color: #4f5d75;
+    font-size: 1.13rem;
+    margin-bottom: 0.3rem;
+}
+.profile-stats {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.08rem;
+    color: #4361ee;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.profile-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.btn.btn-primary {
+    font-size: 1.15rem;
+    padding: 0.9rem 2.2rem;
+    border-radius: 1.5rem;
+    background: linear-gradient(90deg, #7209b7 0%, #4361ee 100%);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    box-shadow: 0 4px 16px #7209b733;
+    transition: box-shadow 0.2s, filter 0.2s;
+}
+.btn.btn-primary i.fab.fa-github {
+    font-size: 1.3rem;
+}
+.btn.btn-primary:hover {
+    filter: brightness(1.08) drop-shadow(0 2px 8px #7209b7cc);
+    box-shadow: 0 8px 32px #4361ee33;
+}
+@media (max-width: 700px) {
+    .profile-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.2rem 1rem 1.2rem 1rem;
+        min-height: unset;
+    }
+    .profile-avatar {
+        width: 110px;
+        height: 110px;
+    }
+    .profile-meta h3 {
+        font-size: 1.4rem;
+    }
+}
