@@ -29,22 +29,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Mobile menu toggle
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
-
-mobileMenuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    mobileMenuBtn.classList.toggle('active');
-});
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-        navLinks.classList.remove('active');
-        mobileMenuBtn.classList.remove('active');
-    }
-});
+// --- MOBILE MENU TOGGLE ---
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+    });
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+        }
+    });
+}
 
 // Enhanced scroll spy for navigation
 window.addEventListener('scroll', () => {
@@ -103,3 +102,79 @@ if (viewCount) {
     localStorage.setItem('profileViews', Number(count) + 1);
     viewCount.textContent = Number(count) + 1;
 }
+
+// --- GITHUB DATA FETCH & RENDER ---
+const GITHUB_USERNAME = 'vsmm-world';
+
+async function fetchGitHubProfile() {
+    const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`);
+    if (!res.ok) return null;
+    return res.json();
+}
+
+async function fetchGitHubRepos() {
+    const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`);
+    if (!res.ok) return [];
+    return res.json();
+}
+
+function renderGitHubProfile(profile) {
+    const el = document.getElementById('github-profile-info');
+    if (!el || !profile) return;
+    el.innerHTML = `
+        <div class="profile-card">
+            <img src="${profile.avatar_url}" alt="${profile.name}" class="profile-avatar"/>
+            <div class="profile-meta">
+                <h3>${profile.name || profile.login}</h3>
+                <p>${profile.bio || ''}</p>
+                <div class="profile-stats">
+                    <span><i class="fas fa-users"></i> ${profile.followers} followers</span>
+                    <span><i class="fas fa-user-plus"></i> ${profile.following} following</span>
+                    <span><i class="fas fa-book"></i> ${profile.public_repos} repos</span>
+                </div>
+                <a href="${profile.html_url}" target="_blank" class="btn btn-primary">View GitHub</a>
+            </div>
+        </div>
+    `;
+}
+
+function renderGitHubRepos(repos) {
+    const grid = document.getElementById('github-projects');
+    if (!grid) return;
+    if (!repos.length) {
+        grid.innerHTML = '<div class="error-message">No repositories found.</div>';
+        return;
+    }
+    grid.innerHTML = repos.slice(0, 8).map(repo => `
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">${repo.name}</h3>
+                <span class="project-date">${new Date(repo.updated_at).getFullYear()}</span>
+            </div>
+            <div class="project-description">${repo.description || ''}</div>
+            <div class="project-tech-stack">
+                ${repo.language ? `<span class="tech-badge">${repo.language}</span>` : ''}
+            </div>
+            <div class="project-stats">
+                <span class="stat-item"><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
+                <span class="stat-item"><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
+            </div>
+            <div class="project-links">
+                <a href="${repo.html_url}" target="_blank" class="btn btn-secondary">View Repo</a>
+            </div>
+        </div>
+    `).join('');
+}
+
+async function initGitHub() {
+    const [profile, repos] = await Promise.all([
+        fetchGitHubProfile(),
+        fetchGitHubRepos()
+    ]);
+    renderGitHubProfile(profile);
+    renderGitHubRepos(repos);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initGitHub();
+});

@@ -1,0 +1,57 @@
+<section id="github" class="section github-section">
+    <div class="container">
+        <h2 class="section-title">GitHub Projects</h2>
+        <div class="github-stats">
+            <div class="stat-card">
+                <i class="fab fa-github"></i>
+                <span id="repo-count" class="stat-number">0</span>
+                <span class="stat-label">Repositories</span>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-code-branch"></i>
+                <span id="fork-count" class="stat-number">0</span>
+                <span class="stat-label">Forks</span>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-star"></i>
+                <span id="star-count" class="stat-number">0</span>
+                <span class="stat-label">Stars</span>
+            </div>
+        </div>
+        <div id="repo-list" class="repo-grid">
+            <!-- Repositories will be dynamically loaded here -->
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>Loading repositories...</span>
+            </div>
+        </div>
+        <div class="github-cta">
+            <a href="https://github.com/vsmm-world" target="_blank" rel="noopener noreferrer" class="github-link">
+                <i class="fab fa-github"></i>
+                View More on GitHub
+            </a>
+        </div>
+    </div>
+</section>
+
+<template id="repo-template">
+    <div class="repo-card">
+        <h3 class="repo-name"></h3>
+        <p class="repo-description"></p>
+        <div class="repo-meta">
+            <span class="repo-language">
+                <span class="language-dot"></span>
+                <span class="language-name"></span>
+            </span>
+            <span class="repo-stars">
+                <i class="fas fa-star"></i>
+                <span class="star-count"></span>
+            </span>
+            <span class="repo-forks">
+                <i class="fas fa-code-branch"></i>
+                <span class="fork-count"></span>
+            </span>
+        </div>
+        <a href="#" class="repo-link" target="_blank" rel="noopener noreferrer">View Repository</a>
+    </div>
+</template>
