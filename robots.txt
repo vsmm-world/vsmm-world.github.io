@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://vsmm-world.github.io/sitemap.xml
+
+# Disallow specific paths if needed
+# Disallow: /private/
+
+# Allow Google Bot
+User-agent: Googlebot
+Allow: /
+
+# Allow Bing Bot  
+User-agent: Bingbot
+Allow: /
