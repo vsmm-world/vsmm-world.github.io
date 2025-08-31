@@ -49,7 +49,8 @@ if (navToggle && navMenu) {
 window.addEventListener('scroll', () => {
     let current = '';
     const sections = document.querySelectorAll('section');
-    const navHeight = document.querySelector('.navbar').offsetHeight;
+    const navbar = document.querySelector('.site-header');
+    const navHeight = navbar ? navbar.offsetHeight : 80;
     const scrollPosition = window.pageYOffset + navHeight + 50;
 
     sections.forEach(section => {
@@ -61,7 +62,7 @@ window.addEventListener('scroll', () => {
         }
     });
 
-    document.querySelectorAll('.nav-links a').forEach(link => {
+    document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href').slice(1) === current) {
             link.classList.add('active');
@@ -177,4 +178,143 @@ async function initGitHub() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initGitHub();
+    initThemeToggle();
+    initEnhancedAnimations();
+    initHeaderScrollEffect();
 });
+
+// Theme Toggle Functionality
+function initThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    
+    // Check for saved theme or default to light mode
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.classList.toggle('dark-mode', savedTheme === 'dark');
+    updateThemeIcon(themeIcon, savedTheme === 'dark');
+
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateThemeIcon(themeIcon, isDark);
+    });
+}
+
+function updateThemeIcon(icon, isDark) {
+    icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+}
+
+// Enhanced Header Scroll Effect
+function initHeaderScrollEffect() {
+    const header = document.querySelector('.site-header');
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Add scrolled class for style changes
+        header.classList.toggle('scrolled', scrollTop > 50);
+        
+        // Hide/show header on scroll
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            header.style.transform = 'translateY(0)';
+        }
+        lastScrollTop = scrollTop;
+    });
+}
+
+// Enhanced Animations
+function initEnhancedAnimations() {
+    // Parallax effect for hero shapes
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const heroShapes = document.querySelectorAll('.shape');
+        
+        heroShapes.forEach((shape, index) => {
+            const speed = 0.5 + (index * 0.1);
+            shape.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+
+        // Parallax for tech icons
+        const techIcons = document.querySelectorAll('.tech-icon');
+        techIcons.forEach((icon, index) => {
+            const speed = 0.3 + (index * 0.05);
+            icon.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+    });
+
+    // Intersection Observer for smooth section animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('.section').forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+    });
+
+    // Enhanced skill card hover effects
+    document.querySelectorAll('.skill-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-8px) scale(1.05)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // Smooth scroll for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const headerOffset = 80;
+                const elementPosition = target.offsetTop;
+                const offsetPosition = elementPosition - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Animate progress bars when skills section comes into view
+    const skillsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const progressBars = entry.target.querySelectorAll('.progress-bar');
+                progressBars.forEach(bar => {
+                    const width = bar.getAttribute('data-width');
+                    setTimeout(() => {
+                        bar.style.width = width + '%';
+                    }, 200);
+                });
+                skillsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    const skillsSection = document.querySelector('#skills');
+    if (skillsSection) {
+        skillsObserver.observe(skillsSection);
+    }
+}
