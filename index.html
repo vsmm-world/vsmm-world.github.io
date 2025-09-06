@@ -29,12 +29,18 @@
     
     <title>Ravindra Valand - Full Stack Developer Portfolio | Modern Web Solutions</title>
     <link rel="canonical" href="https://vsmm-world.github.io/">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Google Fonts for enhanced typography -->
+    <!-- Font Awesome with fallback -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+          onerror="this.onerror=null;this.href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css';">
+    
+    <!-- Google Fonts with fallback -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" 
+          rel="stylesheet" 
+          onerror="this.onerror=null;this.href='https://fonts.bunny.net/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap';">
+    
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <!-- Add preconnect for external resources -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -404,18 +410,42 @@
             </div>
         </div>
     </footer>
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Scripts with fallback -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js" 
+            onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js';"></script>
     <script src="js/main.js"></script>
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true
-        });
+        // Initialize AOS with error handling
+        function initializeAOS() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    offset: 100,
+                    easing: 'ease-out-cubic'
+                });
+            } else {
+                console.warn('AOS library not loaded, falling back to CSS animations');
+                // Add fallback CSS animations
+                document.documentElement.classList.add('no-aos');
+            }
+        }
+        
+        // Wait for DOM and AOS to load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                setTimeout(initializeAOS, 100);
+            });
+        } else {
+            setTimeout(initializeAOS, 100);
+        }
+        
+        // Global variables for GitHub integration
+        window.GITHUB_USERNAME = 'vsmm-world';
+        window.GITHUB_API_BASE = 'https://api.github.com';
 
-        const GITHUB_USERNAME = 'vsmm-world';
-        const GITHUB_API_BASE = 'https://api.github.com';
+        const GITHUB_USERNAME = window.GITHUB_USERNAME;
+        const GITHUB_API_BASE = window.GITHUB_API_BASE;
 
         // Fetch GitHub user profile data
         async function fetchGitHubProfile() {
