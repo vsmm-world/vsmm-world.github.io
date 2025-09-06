@@ -79,6 +79,21 @@
 </head>
 
 <body class="page-wrapper">
+    <!-- Professional Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <h1 class="logo-text">RV</h1>
+            </div>
+            <div class="preloader-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <p class="preloader-text">Loading Excellence...</p>
+        </div>
+    </div>
+
     <header class="site-header">
         <nav class="main-nav">
             <div class="site-logo">
@@ -516,6 +531,26 @@
             }
         }
 
+        // Enhanced preloader functionality
+        function initializePreloader() {
+            const preloader = document.getElementById('preloader');
+            
+            // Hide preloader after page load with a minimum display time
+            const minDisplayTime = 1500; // 1.5 seconds
+            const startTime = Date.now();
+            
+            window.addEventListener('load', () => {
+                const elapsedTime = Date.now() - startTime;
+                const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
+                
+                setTimeout(() => {
+                    preloader.classList.add('hidden');
+                    // Remove from DOM after animation
+                    setTimeout(() => preloader.remove(), 500);
+                }, remainingTime);
+            });
+        }
+
         // Enhanced form validation and submission
         function initializeContactForm() {
             const form = document.getElementById('contact-form');
@@ -716,6 +751,7 @@
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
+                    initializePreloader();
                     initializeAOS();
                     initializeContactForm();
                     initializeScrollProgress();
@@ -723,6 +759,7 @@
             });
         } else {
             setTimeout(() => {
+                initializePreloader();
                 initializeAOS();
                 initializeContactForm();
                 initializeScrollProgress();
