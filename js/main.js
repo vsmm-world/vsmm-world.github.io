@@ -105,15 +105,16 @@ if (viewCount) {
 }
 
 // --- GITHUB DATA FETCH & RENDER ---
-const GITHUB_USERNAME = 'vsmm-world';
-
+// Use GITHUB_USERNAME from global scope
 async function fetchGitHubProfile() {
+    const GITHUB_USERNAME = window.GITHUB_USERNAME || 'vsmm-world';
     const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`);
     if (!res.ok) return null;
     return res.json();
 }
 
 async function fetchGitHubRepos() {
+    const GITHUB_USERNAME = window.GITHUB_USERNAME || 'vsmm-world';
     const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`);
     if (!res.ok) return [];
     return res.json();
