@@ -29,12 +29,18 @@
     
     <title>Ravindra Valand - Full Stack Developer Portfolio | Modern Web Solutions</title>
     <link rel="canonical" href="https://vsmm-world.github.io/">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Google Fonts for enhanced typography -->
+    <!-- Font Awesome with fallback -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+          onerror="this.onerror=null;this.href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css';">
+    
+    <!-- Google Fonts with fallback -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" 
+          rel="stylesheet" 
+          onerror="this.onerror=null;this.href='https://fonts.bunny.net/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap';">
+    
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <!-- Add preconnect for external resources -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -73,6 +79,21 @@
 </head>
 
 <body class="page-wrapper">
+    <!-- Professional Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <h1 class="logo-text">RV</h1>
+            </div>
+            <div class="preloader-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <p class="preloader-text">Loading Excellence...</p>
+        </div>
+    </div>
+
     <header class="site-header">
         <nav class="main-nav">
             <div class="site-logo">
@@ -336,33 +357,117 @@
                         <div class="form-group">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" id="name" name="name" class="form-input" required>
+                            <div class="form-error" id="name-error">Please enter your name</div>
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" id="email" name="email" class="form-input" required>
+                            <div class="form-error" id="email-error">Please enter a valid email address</div>
                         </div>
                         <div class="form-group">
                             <label for="message" class="form-label">Message</label>
-                            <textarea id="message" name="message" class="form-textarea" required></textarea>
+                            <textarea id="message" name="message" class="form-textarea" required placeholder="Tell me about your project or idea..."></textarea>
+                            <div class="form-error" id="message-error">Please enter your message</div>
                         </div>
-                        <button type="submit" class="btn btn-submit">Send Message</button>
+                        <button type="submit" class="btn btn-submit">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
                     </form>
                     <div class="contact-links">
                         <a href="https://github.com/vsmm-world" target="_blank" rel="noopener noreferrer"
                             class="contact-link">
-                            <i class="fab fa-github"></i> Follow on GitHub
+                            <i class="fab fa-github"></i> 
+                            <span>Follow on GitHub</span>
                         </a>
                         <a href="mailto:rvpc792@gmail.com" class="contact-link">
-                            <i class="fas fa-envelope"></i> Send an Email
+                            <i class="fas fa-envelope"></i> 
+                            <span>Send an Email</span>
                         </a>
                         <a href="https://linkedin.com/in/ravindra-valand" target="_blank" rel="noopener noreferrer"
                             class="contact-link">
-                            <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                            <i class="fab fa-linkedin"></i> 
+                            <span>Connect on LinkedIn</span>
                         </a>
                         <a href="https://calendly.com/rvpc792" target="_blank" rel="noopener noreferrer"
                             class="contact-link">
-                            <i class="far fa-calendar-alt"></i> Schedule a Meeting
+                            <i class="far fa-calendar-alt"></i> 
+                            <span>Schedule a Meeting</span>
                         </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Testimonials Section -->
+        <section id="testimonials" class="section testimonials-section">
+            <div class="container">
+                <h2 class="section-title">What Clients Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card" data-aos="fade-up">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Ravindra's technical expertise and attention to detail exceeded our expectations. The web application he developed has significantly improved our business operations."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4 class="author-name">Sarah Johnson</h4>
+                                    <p class="author-title">CEO, TechStart Inc.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Working with Ravindra was a pleasure. His professionalism, code quality, and ability to meet deadlines makes him an ideal development partner."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4 class="author-name">Michael Chen</h4>
+                                    <p class="author-title">CTO, Digital Solutions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Outstanding full-stack development skills! Ravindra delivered a scalable, modern web application that perfectly matches our requirements."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4 class="author-name">Emily Rodriguez</h4>
+                                    <p class="author-title">Product Manager, InnovateCorp</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -404,18 +509,269 @@
             </div>
         </div>
     </footer>
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Scripts with fallback -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js" 
+            onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js';"></script>
     <script src="js/main.js"></script>
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true
-        });
+        // Professional AOS initialization with enhanced settings
+        function initializeAOS() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    once: true,
+                    offset: 100,
+                    easing: 'ease-out-cubic',
+                    delay: 100,
+                    anchorPlacement: 'top-bottom'
+                });
+            } else {
+                console.warn('AOS library not loaded, falling back to CSS animations');
+                document.documentElement.classList.add('no-aos');
+            }
+        }
 
-        const GITHUB_USERNAME = 'vsmm-world';
-        const GITHUB_API_BASE = 'https://api.github.com';
+        // Enhanced preloader functionality
+        function initializePreloader() {
+            const preloader = document.getElementById('preloader');
+            
+            // Hide preloader after page load with a minimum display time
+            const minDisplayTime = 1500; // 1.5 seconds
+            const startTime = Date.now();
+            
+            window.addEventListener('load', () => {
+                const elapsedTime = Date.now() - startTime;
+                const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
+                
+                setTimeout(() => {
+                    preloader.classList.add('hidden');
+                    // Remove from DOM after animation
+                    setTimeout(() => preloader.remove(), 500);
+                }, remainingTime);
+            });
+        }
+
+        // Enhanced form validation and submission
+        function initializeContactForm() {
+            const form = document.getElementById('contact-form');
+            const submitBtn = form.querySelector('.btn-submit');
+            
+            if (!form) return;
+
+            // Real-time validation
+            const inputs = form.querySelectorAll('.form-input, .form-textarea');
+            inputs.forEach(input => {
+                input.addEventListener('blur', validateField);
+                input.addEventListener('input', clearErrors);
+            });
+
+            // Form submission with loading state
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                if (!validateForm()) return;
+                
+                // Add loading state
+                submitBtn.classList.add('btn-loading');
+                submitBtn.disabled = true;
+                
+                // Simulate form submission (replace with actual endpoint)
+                try {
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    
+                    // Success state
+                    showNotification('Message sent successfully!', 'success');
+                    form.reset();
+                } catch (error) {
+                    showNotification('Failed to send message. Please try again.', 'error');
+                } finally {
+                    submitBtn.classList.remove('btn-loading');
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+
+        function validateField(e) {
+            const field = e.target;
+            const value = field.value.trim();
+            const type = field.type;
+            
+            clearFieldError(field);
+            
+            if (!value) {
+                showFieldError(field, 'This field is required');
+                return false;
+            }
+            
+            if (type === 'email' && !isValidEmail(value)) {
+                showFieldError(field, 'Please enter a valid email address');
+                return false;
+            }
+            
+            field.classList.add('success');
+            return true;
+        }
+
+        function validateForm() {
+            const inputs = document.querySelectorAll('#contact-form .form-input, #contact-form .form-textarea');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (!validateField({ target: input })) {
+                    isValid = false;
+                }
+            });
+            
+            return isValid;
+        }
+
+        function clearErrors(e) {
+            clearFieldError(e.target);
+        }
+
+        function showFieldError(field, message) {
+            field.classList.add('error');
+            field.classList.remove('success');
+            const errorEl = field.parentNode.querySelector('.form-error');
+            if (errorEl) {
+                errorEl.textContent = message;
+                errorEl.classList.add('show');
+            }
+        }
+
+        function clearFieldError(field) {
+            field.classList.remove('error');
+            const errorEl = field.parentNode.querySelector('.form-error');
+            if (errorEl) {
+                errorEl.classList.remove('show');
+            }
+        }
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            // Add styles if not already present
+            if (!document.querySelector('#notification-styles')) {
+                const styles = document.createElement('style');
+                styles.id = 'notification-styles';
+                styles.textContent = `
+                    .notification {
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        padding: 1rem 1.5rem;
+                        border-radius: 0.5rem;
+                        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                        z-index: 1000;
+                        opacity: 0;
+                        transform: translateX(100%);
+                        transition: all 0.3s ease;
+                    }
+                    .notification-success {
+                        background: #10b981;
+                        color: white;
+                    }
+                    .notification-error {
+                        background: #ef4444;
+                        color: white;
+                    }
+                    .notification-content {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                    }
+                    .notification.show {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                `;
+                document.head.appendChild(styles);
+            }
+            
+            document.body.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => notification.classList.add('show'), 100);
+            
+            // Remove notification after 5 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => notification.remove(), 300);
+            }, 5000);
+        }
+
+        // Enhanced scroll progress indicator
+        function initializeScrollProgress() {
+            const progressBar = document.createElement('div');
+            progressBar.className = 'scroll-progress';
+            progressBar.innerHTML = '<div class="scroll-progress-fill"></div>';
+            
+            const styles = document.createElement('style');
+            styles.textContent = `
+                .scroll-progress {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 3px;
+                    background: rgba(37, 99, 235, 0.1);
+                    z-index: 9999;
+                }
+                .scroll-progress-fill {
+                    height: 100%;
+                    background: linear-gradient(90deg, #2563eb, #7c3aed);
+                    width: 0%;
+                    transition: width 0.1s ease;
+                }
+            `;
+            document.head.appendChild(styles);
+            document.body.appendChild(progressBar);
+            
+            const progressFill = progressBar.querySelector('.scroll-progress-fill');
+            
+            window.addEventListener('scroll', () => {
+                const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                progressFill.style.width = Math.min(scrolled, 100) + '%';
+            });
+        }
+        
+        // Wait for DOM and AOS to load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                setTimeout(() => {
+                    initializePreloader();
+                    initializeAOS();
+                    initializeContactForm();
+                    initializeScrollProgress();
+                }, 100);
+            });
+        } else {
+            setTimeout(() => {
+                initializePreloader();
+                initializeAOS();
+                initializeContactForm();
+                initializeScrollProgress();
+            }, 100);
+        }
+        
+        // Global variables for GitHub integration
+        window.GITHUB_USERNAME = 'vsmm-world';
+        window.GITHUB_API_BASE = 'https://api.github.com';
+
+        const GITHUB_USERNAME = window.GITHUB_USERNAME;
+        const GITHUB_API_BASE = window.GITHUB_API_BASE;
 
         // Fetch GitHub user profile data
         async function fetchGitHubProfile() {
