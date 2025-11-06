@@ -532,23 +532,51 @@
         }
 
         // Enhanced preloader functionality
+        let preloaderInitialized = false;
         function initializePreloader() {
+            // Prevent multiple initializations
+            if (preloaderInitialized) return;
+            preloaderInitialized = true;
+            
             const preloader = document.getElementById('preloader');
+            if (!preloader) return;
             
             // Hide preloader after page load with a minimum display time
             const minDisplayTime = 1500; // 1.5 seconds
+            const maxDisplayTime = 5000; // 5 seconds - fallback timeout
             const startTime = Date.now();
+            let preloaderHidden = false;
             
-            window.addEventListener('load', () => {
+            function hidePreloader() {
+                if (preloaderHidden) return;
+                preloaderHidden = true;
+                
                 const elapsedTime = Date.now() - startTime;
                 const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
                 
                 setTimeout(() => {
                     preloader.classList.add('hidden');
                     // Remove from DOM after animation
-                    setTimeout(() => preloader.remove(), 500);
+                    setTimeout(() => {
+                        if (preloader.parentNode) {
+                            preloader.remove();
+                        }
+                    }, 500);
                 }, remainingTime);
-            });
+            }
+            
+            // Listen for page load event
+            window.addEventListener('load', hidePreloader);
+            
+            // Fallback timeout to ensure preloader always hides
+            setTimeout(() => {
+                hidePreloader();
+            }, maxDisplayTime);
+            
+            // If page is already loaded, hide immediately
+            if (document.readyState === 'complete') {
+                hidePreloader();
+            }
         }
 
         // Enhanced form validation and submission
