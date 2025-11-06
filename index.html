@@ -124,6 +124,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
         <div class="hero-background">
+            <div id="hero-3d-canvas" class="hero-3d-canvas"></div>
             <div class="hero-particles"></div>
             <div class="hero-shapes">
                 <div class="shape shape-1"></div>
@@ -193,10 +194,10 @@
     <main class="main-content">
         <section id="about" class="section about-section">
             <div class="container">
-                <h2 class="section-title">About Me</h2>
+                <h2 class="section-title" data-parallax="0.3">About Me</h2>
                 <div class="about-content">
                     <img src="assets/images/Ravindra-Valand.png" alt="Ravindra Valand" class="profile-image"
-                        loading="lazy">
+                        loading="lazy" data-parallax="0.2">
                     <div class="about-description">
                         <p class="about-text">Hello! I'm Ravindra Valand, a passionate Full Stack Developer with
                             expertise in modern web
@@ -238,7 +239,7 @@
 
         <section id="skills" class="section skills-section">
             <div class="container">
-                <h2 class="section-title">Skills & Expertise</h2>
+                <h2 class="section-title" data-parallax="0.3">Skills & Expertise</h2>
                 <div class="skills-grid">
                     <div class="skill-card" data-aos="fade-up">
                         <i class="fab fa-html5 skill-icon"></i>
@@ -310,7 +311,7 @@
 
         <section id="projects" class="section projects-section">
             <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
+                <h2 class="section-title" data-parallax="0.3">Featured Projects</h2>
                 <!-- <div class="project-filters">
                     <button class="filter-btn active" data-filter="all">All Projects</button>
                     <button class="filter-btn" data-filter="frontend">Frontend Development</button>
@@ -510,8 +511,12 @@
         </div>
     </footer>
     <!-- Scripts with fallback -->
+    <!-- Three.js for 3D effects -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.159.0/build/three.min.js" 
+            onerror="this.onerror=null;this.src='https://unpkg.com/three@0.159.0/build/three.min.js';"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js" 
             onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js';"></script>
+    <script src="js/3d-effects.js"></script>
     <script src="js/main.js"></script>
     <script>
         // Professional AOS initialization with enhanced settings
