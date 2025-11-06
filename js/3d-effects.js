@@ -59,8 +59,18 @@ function init3DBackground() {
  * Create Particle System
  */
 function createParticleSystem() {
+    // Adaptive particle count based on device
+    const isMobile = window.innerWidth < 768;
+    const isLowEnd = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4;
+    let particlesCount = 1500;
+    
+    if (isMobile) {
+        particlesCount = 500;
+    } else if (isLowEnd) {
+        particlesCount = 1000;
+    }
+    
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 1500;
     
     const positions = new Float32Array(particlesCount * 3);
     const colors = new Float32Array(particlesCount * 3);
@@ -198,8 +208,29 @@ function cleanup3D() {
     if (animationId) {
         cancelAnimationFrame(animationId);
     }
+    
+    // Dispose of geometries and materials
+    if (scene) {
+        scene.traverse((object) => {
+            if (object.geometry) {
+                object.geometry.dispose();
+            }
+            if (object.material) {
+                if (Array.isArray(object.material)) {
+                    object.material.forEach(material => material.dispose());
+                } else {
+                    object.material.dispose();
+                }
+            }
+        });
+    }
+    
     if (renderer) {
         renderer.dispose();
+        const canvas = renderer.domElement;
+        if (canvas && canvas.parentNode) {
+            canvas.parentNode.removeChild(canvas);
+        }
     }
 }
 
@@ -207,27 +238,32 @@ function cleanup3D() {
  * Initialize 3D Card Effects for Skills Section
  */
 function init3DCardEffects() {
-    const cards = document.querySelectorAll('.skill-card, .project-card, .testimonial-card');
+    const container = document.body;
     
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
-            
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-        });
+    // Use event delegation for better performance
+    container.addEventListener('mousemove', (e) => {
+        const target = e.target.closest('.skill-card, .project-card, .testimonial-card');
+        if (!target) return;
         
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
-        });
+        const rect = target.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        target.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
     });
+    
+    container.addEventListener('mouseleave', (e) => {
+        const target = e.target.closest('.skill-card, .project-card, .testimonial-card');
+        if (!target) return;
+        
+        target.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+    }, true);
 }
 
 /**
@@ -235,8 +271,9 @@ function init3DCardEffects() {
  */
 function init3DParallax() {
     const parallaxElements = document.querySelectorAll('[data-parallax]');
+    let ticking = false;
     
-    window.addEventListener('scroll', () => {
+    function updateParallax() {
         const scrolled = window.pageYOffset;
         
         parallaxElements.forEach(element => {
@@ -244,6 +281,15 @@ function init3DParallax() {
             const yPos = -(scrolled * speed);
             element.style.transform = `translate3d(0, ${yPos}px, 0)`;
         });
+        
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
     });
 }
 

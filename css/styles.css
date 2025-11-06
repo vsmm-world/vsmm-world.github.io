@@ -1156,6 +1156,7 @@ body {
     color: var(--color-primary);
     transition: var(--transition-normal);
     display: block;
+    filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.3));
 }
 
 .skill-card:hover .skill-icon {
@@ -2816,16 +2817,6 @@ body.dark-mode .site-footer {
     50% {
         transform: perspective(1000px) translateY(-10px) rotateX(2deg) rotateY(2deg);
     }
-}
-
-/* Enhanced Skill Icon Animation */
-.skill-icon {
-    font-size: var(--font-size-5xl);
-    margin-bottom: var(--space-4);
-    color: var(--color-primary);
-    transition: var(--transition-normal);
-    display: block;
-    filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.3));
 }
 
 .skill-card:hover .skill-icon {
