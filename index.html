@@ -532,7 +532,12 @@
         }
 
         // Enhanced preloader functionality
+        let preloaderInitialized = false;
         function initializePreloader() {
+            // Prevent multiple initializations
+            if (preloaderInitialized) return;
+            preloaderInitialized = true;
+            
             const preloader = document.getElementById('preloader');
             if (!preloader) return;
             
@@ -568,7 +573,7 @@
                 hidePreloader();
             }, maxDisplayTime);
             
-            // Also hide on DOMContentLoaded as a faster fallback
+            // If page is already loaded, hide immediately
             if (document.readyState === 'complete') {
                 hidePreloader();
             }
