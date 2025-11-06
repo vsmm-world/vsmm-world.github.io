@@ -549,23 +549,6 @@ body {
     margin-top: 80px;
 }
 
-/* 3D Canvas Container */
-.hero-3d-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.hero-3d-canvas canvas {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-
 .hero-background {
     position: absolute;
     top: 0;
@@ -942,17 +925,6 @@ body {
     margin-bottom: 2rem;
     min-height: 600px;
     transition: all 0.3s ease;
-    background-size: 200% 200%;
-    animation: gradientShift 15s ease infinite;
-}
-
-@keyframes gradientShift {
-    0%, 100% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
 }
 
 /* Add subtle borders for better definition */
@@ -1124,8 +1096,6 @@ body {
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--border-primary);
     text-align: center;
-    transform-style: preserve-3d;
-    will-change: transform;
 }
 
 .skill-card::before {
@@ -1145,9 +1115,9 @@ body {
 }
 
 .skill-card:hover {
+    transform: translateY(-8px) scale(1.02);
     box-shadow: var(--shadow-2xl);
     border-color: var(--color-primary);
-    z-index: 10;
 }
 
 .skill-icon {
@@ -1156,7 +1126,6 @@ body {
     color: var(--color-primary);
     transition: var(--transition-normal);
     display: block;
-    filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.3));
 }
 
 .skill-card:hover .skill-icon {
@@ -1198,7 +1167,6 @@ body {
     transition: width 2s var(--ease-out);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 15px rgba(37, 99, 235, 0.6);
 }
 
 .progress-bar::after {
@@ -1297,13 +1265,11 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    transform-style: preserve-3d;
-    will-change: transform;
 }
 
 .project-card:hover {
     box-shadow: 0 16px 48px 0 rgba(67, 97, 238, 0.18);
-    z-index: 10;
+    transform: translateY(-4px) scale(1.02);
 }
 
 .project-header {
@@ -1765,8 +1731,6 @@ body {
     transition: var(--transition-normal);
     position: relative;
     overflow: hidden;
-    transform-style: preserve-3d;
-    will-change: transform;
 }
 
 .testimonial-card::before {
@@ -1780,9 +1744,9 @@ body {
 }
 
 .testimonial-card:hover {
+    transform: translateY(-8px);
     box-shadow: var(--shadow-2xl);
     border-color: var(--color-primary);
-    z-index: 10;
 }
 
 .testimonial-content {
@@ -2164,28 +2128,6 @@ body {
 /* Responsive Design */
 /* Extra Small Mobile Devices (320px and up) */
 @media (max-width: 480px) {
-    /* Disable complex 3D effects on mobile for performance */
-    .hero-3d-canvas {
-        display: none;
-    }
-    
-    .skill-card,
-    .project-card,
-    .testimonial-card {
-        transform-style: flat;
-    }
-    
-    .skill-card:hover,
-    .project-card:hover,
-    .testimonial-card:hover {
-        transform: translateY(-4px) scale(1.02);
-        animation: none;
-    }
-    
-    [data-parallax] {
-        transform: none !important;
-    }
-    
     .container {
         padding: 0 1rem;
     }
@@ -2764,176 +2706,6 @@ body.dark-mode .contact-link:hover {
 
 body.dark-mode .site-footer {
     background: linear-gradient(135deg, #0f0f23 0%, #1a1b25 100%);
-}
-
-/* --- 3D Animation Classes --- */
-.animate-3d {
-    animation: fadeIn3D 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-@keyframes fadeIn3D {
-    from {
-        opacity: 0;
-        transform: translateY(50px) rotateX(-15deg) scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) rotateX(0deg) scale(1);
-    }
-}
-
-/* Enhanced 3D Transform Utilities */
-.transform-3d {
-    transform-style: preserve-3d;
-    perspective: 1000px;
-}
-
-/* Parallax Container */
-[data-parallax] {
-    will-change: transform;
-    transition: transform 0.1s ease-out;
-}
-
-/* Smooth GPU Acceleration */
-.skill-card,
-.project-card,
-.testimonial-card,
-.hero-image-container,
-.about-content {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-}
-
-/* 3D Hover Effects - Enhanced */
-.skill-card:hover {
-    animation: float3D 3s ease-in-out infinite;
-}
-
-@keyframes float3D {
-    0%, 100% {
-        transform: perspective(1000px) translateY(0px) rotateX(0deg) rotateY(0deg);
-    }
-    50% {
-        transform: perspective(1000px) translateY(-10px) rotateX(2deg) rotateY(2deg);
-    }
-}
-
-.skill-card:hover .skill-icon {
-    transform: scale(1.15) rotate(5deg) translateZ(20px);
-    color: var(--color-secondary);
-    filter: drop-shadow(0 8px 24px rgba(124, 58, 237, 0.5));
-}
-
-/* 3D Flip Effect for Images */
-.hero-image-container {
-    transform-style: preserve-3d;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-}
-
-.hero-image-container:hover {
-    transform: perspective(1000px) rotateY(10deg) rotateX(5deg) scale(1.05);
-}
-
-.hero-image-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), transparent);
-    transform: translateZ(5px);
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-}
-
-.hero-image-container:hover::after {
-    opacity: 1;
-}
-
-/* 3D Section Entrance */
-.section {
-    transform-style: preserve-3d;
-    perspective: 1000px;
-}
-
-/* Depth Layers */
-.section::before {
-    transform: translateZ(-10px);
-}
-
-.section::after {
-    transform: translateZ(-5px);
-}
-
-/* 3D Button Effects */
-.btn {
-    transform-style: preserve-3d;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: visible;
-}
-
-.btn::before {
-    transform: translateZ(-1px);
-}
-
-.btn::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: inherit;
-    background: radial-gradient(circle, rgba(255,255,255,0.3), transparent);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
-    z-index: -1;
-}
-
-.btn:hover {
-    transform: perspective(1000px) translateZ(10px) scale(1.05);
-    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
-}
-
-.btn:hover::after {
-    width: 200%;
-    height: 200%;
-}
-
-.btn:active {
-    transform: perspective(1000px) translateZ(5px) scale(1.02);
-}
-
-/* Accessibility: Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-    
-    .hero-3d-canvas {
-        display: none;
-    }
-    
-    [data-parallax] {
-        transform: none !important;
-    }
-    
-    .skill-card:hover,
-    .project-card:hover,
-    .testimonial-card:hover {
-        transform: none;
-        animation: none;
-    }
 }
 
 /* --- GitHub Activity Section Enhancements --- */

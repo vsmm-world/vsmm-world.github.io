@@ -1,1080 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="QppgWOc9OsH5acBmqPr7bt8Was4qO0kCAD2RNFQ9ZTU" />
-    <meta name="description"
-        content="Ravindra Valand - Expert Full Stack Developer specializing in React, Node.js, MongoDB. Creating innovative web solutions with modern technologies. View my portfolio and projects.">
+    <meta name="description" content="Ravindra Valand - Expert Full Stack Developer specializing in React, Node.js, MongoDB. Creating innovative web solutions with modern technologies.">
     <meta name="keywords" content="Ravindra Valand, Full Stack Developer, Web Development, React, Node.js, MongoDB, JavaScript, Frontend, Backend, Portfolio">
     <meta name="author" content="Ravindra Valand">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#4361ee">
+    <meta name="theme-color" content="#0a0e27">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vsmm-world.github.io/">
     <meta property="og:title" content="Ravindra Valand - Full Stack Developer Portfolio">
-    <meta property="og:description" content="Expert Full Stack Developer specializing in React, Node.js, MongoDB. Creating innovative web solutions with modern technologies.">
+    <meta property="og:description" content="Expert Full Stack Developer specializing in React, Node.js, MongoDB.">
     <meta property="og:image" content="https://vsmm-world.github.io/assets/images/Ravindra-Valand.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://vsmm-world.github.io/">
     <meta property="twitter:title" content="Ravindra Valand - Full Stack Developer Portfolio">
-    <meta property="twitter:description" content="Expert Full Stack Developer specializing in React, Node.js, MongoDB. Creating innovative web solutions with modern technologies.">
+    <meta property="twitter:description" content="Expert Full Stack Developer specializing in React, Node.js, MongoDB.">
     <meta property="twitter:image" content="https://vsmm-world.github.io/assets/images/Ravindra-Valand.png">
     <meta property="twitter:creator" content="@Mhz_144">
     
-    <title>Ravindra Valand - Full Stack Developer Portfolio | Modern Web Solutions</title>
+    <title>Ravindra Valand - Full Stack Developer | Modern Web Solutions</title>
     <link rel="canonical" href="https://vsmm-world.github.io/">
-    <!-- Font Awesome with fallback -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
-          onerror="this.onerror=null;this.href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css';">
     
-    <!-- Google Fonts with fallback -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" 
-          rel="stylesheet" 
-          onerror="this.onerror=null;this.href='https://fonts.bunny.net/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap';">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    <!-- Add preconnect for external resources -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://api.github.com">
+    <link rel="stylesheet" href="css/new-styles.css">
     <link rel="icon" type="image/png" href="assets/images/Ravindra-Valand.png">
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Ravindra Valand",
-        "jobTitle": "Full Stack Developer",
-        "description": "Expert Full Stack Developer specializing in React, Node.js, MongoDB, and modern web technologies",
-        "url": "https://vsmm-world.github.io/",
-        "image": "https://vsmm-world.github.io/assets/images/Ravindra-Valand.png",
-        "email": "rvpc792@gmail.com",
-        "sameAs": [
-            "https://github.com/vsmm-world",
-            "https://linkedin.com/in/ravindra-valand",
-            "https://twitter.com/Mhz_144",
-            "https://instagram.com/ravindra_valand"
-        ],
-        "knowsAbout": [
-            "JavaScript",
-            "React",
-            "Node.js",
-            "MongoDB",
-            "Express.js",
-            "Next.js",
-            "Web Development",
-            "Full Stack Development"
-        ]
-    }
-    </script>
 </head>
-
-<body class="page-wrapper">
-    <!-- Professional Preloader -->
+<body>
+    <!-- Preloader -->
     <div id="preloader" class="preloader">
         <div class="preloader-content">
-            <div class="preloader-logo">
-                <h1 class="logo-text">RV</h1>
+            <div class="preloader-hexagon">
+                <div class="hexagon"></div>
             </div>
-            <div class="preloader-spinner">
-                <div class="spinner-ring"></div>
-                <div class="spinner-ring"></div>
-                <div class="spinner-ring"></div>
-            </div>
-            <p class="preloader-text">Loading Excellence...</p>
+            <p class="preloader-text">INITIALIZING...</p>
         </div>
     </div>
 
-    <header class="site-header">
-        <nav class="main-nav">
-            <div class="site-logo">
-                <h1 class="site-title">Ravindra Valand <sup>RV</sup></h1>
-            </div>
-            <button class="nav-toggle" aria-label="Toggle menu">
-                <span class="toggle-bar"></span>
-                <span class="toggle-bar"></span>
-                <span class="toggle-bar"></span>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <div class="nav-logo-icon"></div>
+                RV
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
             </button>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="#hero" class="nav-link" aria-label="Home section">Home</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link" aria-label="About section">About</a></li>
-                <li class="nav-item"><a href="#skills" class="nav-link" aria-label="Skills section">Skills</a></li>
-                <li class="nav-item"><a href="#projects" class="nav-link" aria-label="Projects section">Projects</a>
-                </li>
-                <li class="nav-item"><a href="#github" class="nav-link" aria-label="GitHub section">GitHub</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link" aria-label="Contact section">Contact</a></li>
-                <li class="nav-item">
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </li>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero-section">
-        <div class="hero-background">
-            <div id="hero-3d-canvas" class="hero-3d-canvas"></div>
-            <div class="hero-particles"></div>
-            <div class="hero-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
+    <section id="home" class="hero">
+        <div class="hero-3d-canvas" id="hero3dCanvas"></div>
+        <div class="hero-content">
+            <div class="hero-badge" data-aos="fade-down">
+                <i class="fas fa-code"></i> FULL STACK DEVELOPER
             </div>
-        </div>
-        <div class="container hero-container">
-            <div class="hero-content" data-aos="fade-up">
-                <div class="hero-text">
-                    <span class="hero-greeting">👋 Hello, I'm</span>
-                    <h1 class="hero-title">
-                        <span class="hero-name">Ravindra Valand</span>
-                        <span class="hero-role">Full Stack Developer</span>
-                    </h1>
-                    <p class="hero-description">
-                        I craft exceptional digital experiences with modern technologies. 
-                        Passionate about creating robust, scalable web applications that make a difference.
-                    </p>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">3+</span>
-                            <span class="stat-label">Years Experience</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Projects Completed</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">Client Satisfaction</span>
-                        </div>
-                    </div>
-                    <div class="hero-actions">
-                        <a href="#projects" class="btn btn-primary hero-btn">
-                            <i class="fas fa-rocket"></i>
-                            View My Work
-                        </a>
-                        <a href="#contact" class="btn btn-secondary hero-btn">
-                            <i class="fas fa-paper-plane"></i>
-                            Let's Connect
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-visual" data-aos="fade-left" data-aos-delay="200">
-                    <div class="hero-image-container">
-                        <img src="assets/images/Ravindra-Valand.png" alt="Ravindra Valand - Full Stack Developer" class="hero-image">
-                        <div class="hero-image-bg"></div>
-                        <div class="floating-tech-icons">
-                            <div class="tech-icon tech-icon-1"><i class="fab fa-react"></i></div>
-                            <div class="tech-icon tech-icon-2"><i class="fab fa-node-js"></i></div>
-                            <div class="tech-icon tech-icon-3"><i class="fab fa-js-square"></i></div>
-                            <div class="tech-icon tech-icon-4"><i class="fas fa-database"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-scroll-indicator" data-aos="fade-up" data-aos-delay="400">
-                <a href="#about" class="scroll-down">
-                    <span>Scroll Down</span>
-                    <i class="fas fa-arrow-down"></i>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                Hi, I'm <span class="gradient-text">Ravindra Valand</span>
+            </h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Crafting next-generation web experiences with cutting-edge technology.
+                Transforming ideas into elegant, scalable digital solutions.
+            </p>
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> View Projects
                 </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-paper-plane"></i> Get In Touch
+                </a>
+            </div>
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="3">0</span><span class="stat-number">+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="50">0</span><span class="stat-number">+</span>
+                    <span class="stat-label">Projects Delivered</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="100">0</span><span class="stat-number">%</span>
+                    <span class="stat-label">Client Satisfaction</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <main class="main-content">
-        <section id="about" class="section about-section">
-            <div class="container">
-                <h2 class="section-title" data-parallax="0.3">About Me</h2>
-                <div class="about-content">
-                    <img src="assets/images/Ravindra-Valand.png" alt="Ravindra Valand" class="profile-image"
-                        loading="lazy" data-parallax="0.2">
-                    <div class="about-description">
-                        <p class="about-text">Hello! I'm Ravindra Valand, a passionate Full Stack Developer with
-                            expertise in modern web
-                            technologies. I specialize in creating robust and scalable applications that solve
-                            real-world problems.</p>
-                        <p class="about-text">With a strong foundation in both frontend and backend development, I enjoy
-                            taking on
-                            challenging projects that push my boundaries and help me grow as a developer.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">React</span>
-                            <span class="tech-badge">Node.js</span>
-                            <span class="tech-badge">MongoDB</span>
-                            <span class="tech-badge">Expressjs</span>
-                            <span class="tech-badge">Nextjs</span>
-                            <span class="tech-badge">Digital Ocean</span>
-                        </div>
-                        <div class="social-links">
-                            <a href="https://github.com/vsmm-world" target="_blank" rel="noopener noreferrer"
-                                class="social-link" aria-label="GitHub Profile">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://twitter.com/Mhz_144" target="_blank" rel="noopener noreferrer"
-                                class="social-link" aria-label="Twitter Profile">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="https://instagram.com/ravindra_valand" target="_blank" rel="noopener noreferrer"
-                                class="social-link" aria-label="Instagram Profile">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="https://linkedin.com/in/ravindra-valand" target="_blank" rel="noopener noreferrer"
-                                class="social-link" aria-label="LinkedIn Profile">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="section skills-section">
-            <div class="container">
-                <h2 class="section-title" data-parallax="0.3">Skills & Expertise</h2>
-                <div class="skills-grid">
-                    <div class="skill-card" data-aos="fade-up">
-                        <i class="fab fa-html5 skill-icon"></i>
-                        <span class="skill-name">HTML5</span>
-                        <div class="skill-level">Advanced</div>
-                        <div class="skill-progress">
-                            <div class="progress-bar" data-width="95"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-                        <i class="fab fa-css3-alt skill-icon"></i>
-                        <span class="skill-name">CSS3</span>
-                        <div class="skill-level">Advanced</div>
-                        <div class="skill-progress">
-                            <div class="progress-bar" data-width="90"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-                        <i class="fab fa-js skill-icon"></i>
-                        <span class="skill-name">JavaScript</span>
-                        <div class="skill-level">Expert</div>
-                        <div class="skill-progress">
-                            <div class="progress-bar" data-width="95"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
-                        <i class="fab fa-react skill-icon"></i>
-                        <span class="skill-name">React</span>
-                        <div class="skill-level">Expert</div>
-                        <div class="skill-progress">
-                            <div class="progress-bar" data-width="92"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
-                        <i class="fab fa-node-js skill-icon"></i>
-                        <span class="skill-name">Node.js</span>
-                        <div class="skill-level">Advanced</div>
-                        <div class="skill-progress">
-                            <div class="progress-bar" data-width="88"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="500">
-                        <i class="fas fa-database skill-icon"></i>
-                        <span class="skill-name">MongoDB</span>
-                        <div class="skill-level">Advanced</div>
-                        <div class="skill-progress">
-                            <div class="progress-bar" data-width="85"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="600">
-                        <i class="fab fa-git-alt skill-icon"></i>
-                        <span class="skill-name">Git</span>
-                        <div class="skill-level">Advanced</div>
-                        <div class="skill-progress">
-                            <div class="progress-bar" data-width="90"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="700">
-                        <i class="fab fa-docker skill-icon"></i>
-                        <span class="skill-name">Docker</span>
-                        <div class="skill-level">Intermediate</div>
-                        <div class="skill-progress">
-                            <div class="progress-bar" data-width="70"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="section projects-section">
-            <div class="container">
-                <h2 class="section-title" data-parallax="0.3">Featured Projects</h2>
-                <!-- <div class="project-filters">
-                    <button class="filter-btn active" data-filter="all">All Projects</button>
-                    <button class="filter-btn" data-filter="frontend">Frontend Development</button>
-                    <button class="filter-btn" data-filter="backend">Backend Development</button>
-                    <button class="filter-btn" data-filter="fullstack">Full Stack Applications</button>
-                </div> -->
-                <div class="projects-grid" id="github-projects">
-                    <!-- Projects will be dynamically loaded from GitHub API -->
-                    <div class="loading-spinner"></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="github" class="section github-section">
-            <div class="container">
-                <h2 class="section-title"><i class="fab fa-github"></i> GitHub Activity</h2>
-                <div class="github-stats">
-                    <div id="github-profile-info" class="profile-info"></div>
-                    <div id="github-contributions" class="contribution-graph">
-                        <img src="https://ghchart.rshah.org/vsmm-world" alt="GitHub Contributions"
-                            style="width:100%;max-width:700px;" loading="lazy" />
-                    </div>
-                    <div id="github-stats-cards" class="stats-grid">
-                        <div class="stats-card commits">
-                            <h3 class="stats-title">Total Commits (Public)</h3>
-                            <div class="stat-value" id="total-commits">
-                                <img src="https://github-readme-stats.vercel.app/api?username=vsmm-world&show_icons=true&count_private=true&hide=prs,issues&theme=default"
-                                    alt="GitHub Stats" style="width:100%;max-width:350px;" loading="lazy" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section contact-section">
-            <div class="container">
-                <h2 class="section-title">Let's Connect</h2>
-                <div class="contact-wrapper">
-                    <p class="contact-intro">I'm always open to discussing new projects, creative ideas, or
-                        opportunities to be part of your
-                        vision.</p>
-                    <form id="contact-form" class="contact-form">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
-                            <div class="form-error" id="name-error">Please enter your name</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
-                            <div class="form-error" id="email-error">Please enter a valid email address</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea id="message" name="message" class="form-textarea" required placeholder="Tell me about your project or idea..."></textarea>
-                            <div class="form-error" id="message-error">Please enter your message</div>
-                        </div>
-                        <button type="submit" class="btn btn-submit">
-                            <i class="fas fa-paper-plane"></i>
-                            Send Message
-                        </button>
-                    </form>
-                    <div class="contact-links">
-                        <a href="https://github.com/vsmm-world" target="_blank" rel="noopener noreferrer"
-                            class="contact-link">
-                            <i class="fab fa-github"></i> 
-                            <span>Follow on GitHub</span>
-                        </a>
-                        <a href="mailto:rvpc792@gmail.com" class="contact-link">
-                            <i class="fas fa-envelope"></i> 
-                            <span>Send an Email</span>
-                        </a>
-                        <a href="https://linkedin.com/in/ravindra-valand" target="_blank" rel="noopener noreferrer"
-                            class="contact-link">
-                            <i class="fab fa-linkedin"></i> 
-                            <span>Connect on LinkedIn</span>
-                        </a>
-                        <a href="https://calendly.com/rvpc792" target="_blank" rel="noopener noreferrer"
-                            class="contact-link">
-                            <i class="far fa-calendar-alt"></i> 
-                            <span>Schedule a Meeting</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Professional Testimonials Section -->
-        <section id="testimonials" class="section testimonials-section">
-            <div class="container">
-                <h2 class="section-title">What Clients Say</h2>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card" data-aos="fade-up">
-                        <div class="testimonial-content">
-                            <div class="testimonial-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"Ravindra's technical expertise and attention to detail exceeded our expectations. The web application he developed has significantly improved our business operations."</p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="author-info">
-                                    <h4 class="author-name">Sarah Johnson</h4>
-                                    <p class="author-title">CEO, TechStart Inc.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="testimonial-content">
-                            <div class="testimonial-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"Working with Ravindra was a pleasure. His professionalism, code quality, and ability to meet deadlines makes him an ideal development partner."</p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="author-info">
-                                    <h4 class="author-name">Michael Chen</h4>
-                                    <p class="author-title">CTO, Digital Solutions</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="testimonial-content">
-                            <div class="testimonial-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"Outstanding full-stack development skills! Ravindra delivered a scalable, modern web application that perfectly matches our requirements."</p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="author-info">
-                                    <h4 class="author-name">Emily Rodriguez</h4>
-                                    <p class="author-title">Product Manager, InnovateCorp</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
+    <!-- About Section -->
+    <section id="about" class="section">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 class="footer-title">Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#about" class="footer-link">About</a></li>
-                        <li><a href="#skills" class="footer-link">Skills</a></li>
-                        <li><a href="#projects" class="footer-link">Projects</a></li>
-                        <li><a href="#contact" class="footer-link">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Connect</h3>
-                    <div class="social-links">
-                        <a href="https://github.com/vsmm-world" target="_blank" rel="noopener noreferrer"
-                            class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com/in/ravindra-valand" target="_blank" rel="noopener noreferrer"
-                            class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://twitter.com/Mhz_144" target="_blank" rel="noopener noreferrer"
-                            class="social-link"><i class="fab fa-twitter"></i></a>
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">WHO I AM</span>
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">
+                    Passionate developer dedicated to building exceptional digital experiences
+                </p>
+            </div>
+            <div class="about-content" data-aos="fade-up" data-aos-delay="100">
+                <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto; text-align: center;">
+                    I'm a Full Stack Developer with expertise in modern web technologies. 
+                    I specialize in creating robust, scalable applications that solve real-world problems. 
+                    With a strong foundation in both frontend and backend development, I bring ideas to life 
+                    through clean code and innovative solutions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">EXPERTISE</span>
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-subtitle">
+                    Cutting-edge technologies I work with
+                </p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="0">
+                    <i class="fab fa-html5 skill-icon"></i>
+                    <h3 class="skill-name">HTML5</h3>
+                    <p class="skill-level">Advanced</p>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" data-progress="95"></div>
                     </div>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p class="copyright">&copy; 2024 Ravindra Valand. All rights reserved.</p>
-                <div class="footer-stats">
-                    <span class="stat-item" id="profile-views">Profile Views: <span id="view-count"
-                            class="stat-value">0</span></span>
-                    <span class="stat-item" id="last-updated">Last Updated: <span id="update-date"
-                            class="stat-value"></span></span>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fab fa-css3-alt skill-icon"></i>
+                    <h3 class="skill-name">CSS3</h3>
+                    <p class="skill-level">Advanced</p>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" data-progress="90"></div>
+                    </div>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fab fa-js skill-icon"></i>
+                    <h3 class="skill-name">JavaScript</h3>
+                    <p class="skill-level">Expert</p>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" data-progress="95"></div>
+                    </div>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fab fa-react skill-icon"></i>
+                    <h3 class="skill-name">React</h3>
+                    <p class="skill-level">Expert</p>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" data-progress="92"></div>
+                    </div>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fab fa-node-js skill-icon"></i>
+                    <h3 class="skill-name">Node.js</h3>
+                    <p class="skill-level">Advanced</p>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" data-progress="88"></div>
+                    </div>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="500">
+                    <i class="fas fa-database skill-icon"></i>
+                    <h3 class="skill-name">MongoDB</h3>
+                    <p class="skill-level">Advanced</p>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" data-progress="85"></div>
+                    </div>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="600">
+                    <i class="fab fa-git-alt skill-icon"></i>
+                    <h3 class="skill-name">Git</h3>
+                    <p class="skill-level">Advanced</p>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" data-progress="90"></div>
+                    </div>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="700">
+                    <i class="fab fa-docker skill-icon"></i>
+                    <h3 class="skill-name">Docker</h3>
+                    <p class="skill-level">Intermediate</p>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" data-progress="70"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- Scripts with fallback -->
-    <!-- Three.js for 3D effects -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.159.0/build/three.min.js" 
-            onerror="this.onerror=null;this.src='https://unpkg.com/three@0.159.0/build/three.min.js';"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js" 
-            onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js';"></script>
-    <script src="js/3d-effects.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        // Professional AOS initialization with enhanced settings
-        function initializeAOS() {
-            if (typeof AOS !== 'undefined') {
-                AOS.init({
-                    duration: 1000,
-                    once: true,
-                    offset: 100,
-                    easing: 'ease-out-cubic',
-                    delay: 100,
-                    anchorPlacement: 'top-bottom'
-                });
-            } else {
-                console.warn('AOS library not loaded, falling back to CSS animations');
-                document.documentElement.classList.add('no-aos');
-            }
-        }
+    </section>
 
-        // Enhanced preloader functionality
-        let preloaderInitialized = false;
-        function initializePreloader() {
-            // Prevent multiple initializations
-            if (preloaderInitialized) return;
-            preloaderInitialized = true;
-            
-            const preloader = document.getElementById('preloader');
-            if (!preloader) return;
-            
-            // Hide preloader after page load with a minimum display time
-            const minDisplayTime = 1500; // 1.5 seconds
-            const maxDisplayTime = 5000; // 5 seconds - fallback timeout
-            const startTime = Date.now();
-            let preloaderHidden = false;
-            
-            function hidePreloader() {
-                if (preloaderHidden) return;
-                preloaderHidden = true;
-                
-                const elapsedTime = Date.now() - startTime;
-                const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
-                
-                setTimeout(() => {
-                    preloader.classList.add('hidden');
-                    // Remove from DOM after animation
-                    setTimeout(() => {
-                        if (preloader.parentNode) {
-                            preloader.remove();
-                        }
-                    }, 500);
-                }, remainingTime);
-            }
-            
-            // Listen for page load event
-            window.addEventListener('load', hidePreloader);
-            
-            // Fallback timeout to ensure preloader always hides
-            setTimeout(() => {
-                hidePreloader();
-            }, maxDisplayTime);
-            
-            // If page is already loaded, hide immediately
-            if (document.readyState === 'complete') {
-                hidePreloader();
-            }
-        }
-
-        // Enhanced form validation and submission
-        function initializeContactForm() {
-            const form = document.getElementById('contact-form');
-            const submitBtn = form.querySelector('.btn-submit');
-            
-            if (!form) return;
-
-            // Real-time validation
-            const inputs = form.querySelectorAll('.form-input, .form-textarea');
-            inputs.forEach(input => {
-                input.addEventListener('blur', validateField);
-                input.addEventListener('input', clearErrors);
-            });
-
-            // Form submission with loading state
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                if (!validateForm()) return;
-                
-                // Add loading state
-                submitBtn.classList.add('btn-loading');
-                submitBtn.disabled = true;
-                
-                // Simulate form submission (replace with actual endpoint)
-                try {
-                    await new Promise(resolve => setTimeout(resolve, 2000));
-                    
-                    // Success state
-                    showNotification('Message sent successfully!', 'success');
-                    form.reset();
-                } catch (error) {
-                    showNotification('Failed to send message. Please try again.', 'error');
-                } finally {
-                    submitBtn.classList.remove('btn-loading');
-                    submitBtn.disabled = false;
-                }
-            });
-        }
-
-        function validateField(e) {
-            const field = e.target;
-            const value = field.value.trim();
-            const type = field.type;
-            
-            clearFieldError(field);
-            
-            if (!value) {
-                showFieldError(field, 'This field is required');
-                return false;
-            }
-            
-            if (type === 'email' && !isValidEmail(value)) {
-                showFieldError(field, 'Please enter a valid email address');
-                return false;
-            }
-            
-            field.classList.add('success');
-            return true;
-        }
-
-        function validateForm() {
-            const inputs = document.querySelectorAll('#contact-form .form-input, #contact-form .form-textarea');
-            let isValid = true;
-            
-            inputs.forEach(input => {
-                if (!validateField({ target: input })) {
-                    isValid = false;
-                }
-            });
-            
-            return isValid;
-        }
-
-        function clearErrors(e) {
-            clearFieldError(e.target);
-        }
-
-        function showFieldError(field, message) {
-            field.classList.add('error');
-            field.classList.remove('success');
-            const errorEl = field.parentNode.querySelector('.form-error');
-            if (errorEl) {
-                errorEl.textContent = message;
-                errorEl.classList.add('show');
-            }
-        }
-
-        function clearFieldError(field) {
-            field.classList.remove('error');
-            const errorEl = field.parentNode.querySelector('.form-error');
-            if (errorEl) {
-                errorEl.classList.remove('show');
-            }
-        }
-
-        function isValidEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        }
-
-        function showNotification(message, type = 'info') {
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = `notification notification-${type}`;
-            notification.innerHTML = `
-                <div class="notification-content">
-                    <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
-                    <span>${message}</span>
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">PORTFOLIO</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">
+                    Recent work from GitHub repositories
+                </p>
+            </div>
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects will be loaded dynamically -->
+                <div style="text-align: center; padding: 3rem; grid-column: 1/-1;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">
+                        <i class="fas fa-spinner fa-spin" style="color: var(--accent-cyan);"></i>
+                    </div>
+                    <p style="color: var(--text-secondary);">Loading projects...</p>
                 </div>
-            `;
-            
-            // Add styles if not already present
-            if (!document.querySelector('#notification-styles')) {
-                const styles = document.createElement('style');
-                styles.id = 'notification-styles';
-                styles.textContent = `
-                    .notification {
-                        position: fixed;
-                        top: 20px;
-                        right: 20px;
-                        padding: 1rem 1.5rem;
-                        border-radius: 0.5rem;
-                        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-                        z-index: 1000;
-                        opacity: 0;
-                        transform: translateX(100%);
-                        transition: all 0.3s ease;
-                    }
-                    .notification-success {
-                        background: #10b981;
-                        color: white;
-                    }
-                    .notification-error {
-                        background: #ef4444;
-                        color: white;
-                    }
-                    .notification-content {
-                        display: flex;
-                        align-items: center;
-                        gap: 0.5rem;
-                    }
-                    .notification.show {
-                        opacity: 1;
-                        transform: translateX(0);
-                    }
-                `;
-                document.head.appendChild(styles);
-            }
-            
-            document.body.appendChild(notification);
-            
-            // Show notification
-            setTimeout(() => notification.classList.add('show'), 100);
-            
-            // Remove notification after 5 seconds
-            setTimeout(() => {
-                notification.classList.remove('show');
-                setTimeout(() => notification.remove(), 300);
-            }, 5000);
-        }
+            </div>
+        </div>
+    </section>
 
-        // Enhanced scroll progress indicator
-        function initializeScrollProgress() {
-            const progressBar = document.createElement('div');
-            progressBar.className = 'scroll-progress';
-            progressBar.innerHTML = '<div class="scroll-progress-fill"></div>';
-            
-            const styles = document.createElement('style');
-            styles.textContent = `
-                .scroll-progress {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 3px;
-                    background: rgba(37, 99, 235, 0.1);
-                    z-index: 9999;
-                }
-                .scroll-progress-fill {
-                    height: 100%;
-                    background: linear-gradient(90deg, #2563eb, #7c3aed);
-                    width: 0%;
-                    transition: width 0.1s ease;
-                }
-            `;
-            document.head.appendChild(styles);
-            document.body.appendChild(progressBar);
-            
-            const progressFill = progressBar.querySelector('.scroll-progress-fill');
-            
-            window.addEventListener('scroll', () => {
-                const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-                progressFill.style.width = Math.min(scrolled, 100) + '%';
-            });
-        }
-        
-        // Wait for DOM and AOS to load
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
-                setTimeout(() => {
-                    initializePreloader();
-                    initializeAOS();
-                    initializeContactForm();
-                    initializeScrollProgress();
-                }, 100);
-            });
-        } else {
-            setTimeout(() => {
-                initializePreloader();
-                initializeAOS();
-                initializeContactForm();
-                initializeScrollProgress();
-            }, 100);
-        }
-        
-        // Global variables for GitHub integration
-        window.GITHUB_USERNAME = 'vsmm-world';
-        window.GITHUB_API_BASE = 'https://api.github.com';
-
-        const GITHUB_USERNAME = window.GITHUB_USERNAME;
-        const GITHUB_API_BASE = window.GITHUB_API_BASE;
-
-        // Fetch GitHub user profile data
-        async function fetchGitHubProfile() {
-            try {
-                const response = await fetch(`${GITHUB_API_BASE}/users/${GITHUB_USERNAME}`);
-                if (!response.ok) {
-                    const errorMessage = `HTTP error! status: ${response.status}`;
-                    console.error(errorMessage);
-                    throw new Error(errorMessage);
-                }
-                const profile = await response.json();
-
-                // Update profile stats if elements exist
-                const totalReposEl = document.getElementById('total-repos');
-                const reposStatEl = document.querySelector('.github-stats .repositories .stat-value');
-                const followersStatEl = document.querySelector('.github-stats .followers .stat-value');
-                const followingStatEl = document.querySelector('.github-stats .following .stat-value');
-
-                if (totalReposEl) totalReposEl.textContent = profile.public_repos;
-                if (reposStatEl) reposStatEl.textContent = profile.public_repos;
-                if (followersStatEl) followersStatEl.textContent = profile.followers;
-                if (followingStatEl) followingStatEl.textContent = profile.following;
-
-                return profile;
-            } catch (error) {
-                console.error('Error fetching GitHub profile:', error);
-                throw new Error('Failed to fetch profile: ' + error.message);
-            }
-        }
-
-        // Fetch GitHub repositories with enhanced data
-        async function fetchGitHubRepos() {
-            try {
-                const response = await fetch(`${GITHUB_API_BASE}/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`);
-                if (!response.ok) {
-                    const errorMessage = `HTTP error! status: ${response.status}`;
-                    console.error(errorMessage);
-                    throw new Error(errorMessage);
-                }
-                const repos = await response.json();
-
-                // Get additional data for each repo
-                const repoDetails = await Promise.all(repos.map(async repo => {
-                    try {
-                        const [languages, contributors] = await Promise.all([
-                            fetch(repo.languages_url).then(res => {
-                                if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-                                return res.json();
-                            }),
-                            fetch(`${repo.url}/contributors`).then(res => {
-                                if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-                                return res.json();
-                            })
-                        ]);
-
-                        return {
-                            ...repo,
-                            languages,
-                            contributors: contributors.length,
-                            mainLanguage: Object.keys(languages)[0]
-                        };
-                    } catch (error) {
-                        console.error(`Error fetching details for repo ${repo.name}:`, error);
-                        return {
-                            ...repo,
-                            languages: {},
-                            contributors: 0,
-                            mainLanguage: null
-                        };
-                    }
-                }));
-
-                return repoDetails;
-            } catch (error) {
-                console.error('Error fetching GitHub repositories:', error);
-                throw new Error('Failed to fetch repositories: ' + error.message);
-            }
-        }
-
-        // Fetch contribution data
-        async function fetchContributions() {
-            try {
-                const response = await fetch(`${GITHUB_API_BASE}/users/${GITHUB_USERNAME}/events`);
-                if (!response.ok) {
-                    const errorMessage = `HTTP error! status: ${response.status}`;
-                    console.error(errorMessage);
-                    throw new Error(errorMessage);
-                }
-                const events = await response.json();
-
-                const contributions = events.reduce((acc, event) => {
-                    if (event.type === 'PushEvent') {
-                        acc.commits += event.payload.commits?.length || 0;
-                    }
-                    return acc;
-                }, { commits: 0 });
-
-                const totalCommitsEl = document.getElementById('total-commits');
-                if (totalCommitsEl) totalCommitsEl.textContent = contributions.commits;
-
-                return contributions;
-            } catch (error) {
-                console.error('Error fetching contributions:', error);
-                throw new Error('Failed to fetch contributions: ' + error.message);
-            }
-        }
-
-        // Render repository cards with enhanced information
-        function renderRepoCards(repos) {
-            const projectsGrid = document.getElementById('github-projects');
-            if (!projectsGrid) {
-                console.error('GitHub projects container not found');
-                return;
-            }
-
-            projectsGrid.innerHTML = '';
-
-            repos.slice(0, 6).forEach(repo => {
-                const languageColors = {
-                    JavaScript: '#f1e05a',
-                    TypeScript: '#2b7489',
-                    Python: '#3572A5',
-                    HTML: '#e34c26',
-                    CSS: '#563d7c'
-                };
-
-                // Determine project category based on languages and topics
-                let category = 'frontend';
-                const languages = Object.keys(repo.languages || {});
-                const hasBackend = languages.some(lang => ['Python', 'Java', 'PHP', 'Ruby', 'Go', 'C#'].includes(lang));
-                const hasFrontend = languages.some(lang => ['JavaScript', 'TypeScript', 'HTML', 'CSS'].includes(lang));
-
-                if (hasBackend && hasFrontend) {
-                    category = 'fullstack';
-                } else if (hasBackend) {
-                    category = 'backend';
-                }
-
-                const card = document.createElement('div');
-                card.className = 'project-card';
-                card.setAttribute('data-category', category);
-
-                const languagesHTML = Object.entries(repo.languages)
-                    .map(([lang, bytes]) => {
-                        const percentage = (bytes / Object.values(repo.languages).reduce((a, b) => a + b)) * 100;
-                        return `
-                            <div class="language-item">
-                                <span class="language-dot" style="background-color: ${languageColors[lang] || '#333'}"></span>
-                                <span class="language-name">${lang}</span>
-                                <span class="language-percentage">${percentage.toFixed(1)}%</span>
-                            </div>
-                        `;
-                    }).join('');
-
-                card.innerHTML = `
-                    <div class="project-header">
-                        <h3 class="project-title">${repo.name}</h3>
-                        <div class="project-meta">
-                            <span class="project-date">Updated: ${new Date(repo.updated_at).toLocaleDateString()}</span>
-                            <span class="project-size">${(repo.size / 1024).toFixed(2)} MB</span>
-                        </div>
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">GET IN TOUCH</span>
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">
+                    Have a project in mind? Let's make it happen
+                </p>
+            </div>
+            <div class="contact-container" data-aos="fade-up" data-aos-delay="100">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Name</label>
+                        <input type="text" id="name" class="form-input" required>
                     </div>
-                    <p class="project-description">${repo.description || 'No description available'}</p>
-                    <div class="project-languages">
-                        ${languagesHTML}
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" id="email" class="form-input" required>
                     </div>
-                    <div class="project-tech-stack">
-                        ${repo.topics?.map(topic => `<span class="tech-badge">${topic}</span>`).join('') || ''}
+                    <div class="form-group">
+                        <label class="form-label" for="message">Message</label>
+                        <textarea id="message" class="form-textarea" required></textarea>
                     </div>
-                    <div class="project-stats">
-                        <span class="stat-item"><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
-                        <span class="stat-item"><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
-                        <span class="stat-item"><i class="fas fa-eye"></i> ${repo.watchers_count}</span>
-                        <span class="stat-item"><i class="fas fa-users"></i> ${repo.contributors}</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
-                        ${repo.homepage ? `
-                            <a href="${repo.homepage}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                        ` : ''}
-                    </div>
-                `;
-                projectsGrid.appendChild(card);
-            });
-        }
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-        // Initialize all GitHub data
-        async function initializeGitHubData() {
-            const projectsGrid = document.getElementById('github-projects');
-            if (!projectsGrid) {
-                console.error('GitHub projects container not found');
-                return;
-            }
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://github.com/vsmm-world" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/ravindra-valand" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://twitter.com/Mhz_144" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://instagram.com/ravindra_valand" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:rvpc792@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p class="footer-text">
+                &copy; 2024 Ravindra Valand. Crafted with passion.
+            </p>
+        </div>
+    </footer>
 
-            const loadingSpinner = '<div class="loading-spinner"><i class="fas fa-spinner fa-spin"></i></div>';
-            projectsGrid.innerHTML = loadingSpinner;
-
-            try {
-                const [profile, repos, contributions] = await Promise.all([
-                    fetchGitHubProfile(),
-                    fetchGitHubRepos(),
-                    fetchContributions()
-                ]);
-
-                renderRepoCards(repos);
-                initializeProjectFilters();
-
-                // Update total contributions if element exists
-                const totalContribEl = document.getElementById('total-contributions');
-                if (totalContribEl) {
-                    totalContribEl.textContent = contributions.commits +
-                        repos.reduce((acc, repo) => acc + repo.contributions || 0, 0);
-                }
-
-            } catch (error) {
-                console.error('GitHub data initialization failed:', error);
-                projectsGrid.innerHTML = `
-                    <div class="error-message">
-                        <i class="fas fa-exclamation-circle"></i>
-                        <p class="error-text">${error.message}</p>
-                        <button onclick="initializeGitHubData()" class="btn btn-retry">Retry</button>
-                    </div>
-                `;
-            }
-        }
-
-        // Initialize project filters
-        function initializeProjectFilters() {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const projects = document.querySelectorAll('.project-card');
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const filter = btn.dataset.filter;
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-
-                    projects.forEach(project => {
-                        if (filter === 'all') {
-                            project.style.display = 'block';
-                        } else {
-                            const category = project.dataset.category;
-                            project.style.display = category === filter ? 'block' : 'none';
-                        }
-                    });
-                });
-            });
-        }
-
-        // Update last modified date
-        const updateDate = document.getElementById('update-date');
-        if (updateDate) {
-            updateDate.textContent = new Date().toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-        }
-
-        // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            initializeGitHubData();
-        });
-    </script>
+    <!-- Three.js for 3D Effects -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.159.0/build/three.min.js"></script>
+    <script src="js/3d-effects.js"></script>
+    <script src="js/new-main.js"></script>
 </body>
-
 </html>
