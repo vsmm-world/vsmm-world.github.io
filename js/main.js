@@ -148,7 +148,7 @@ function renderGitHubRepos(repos) {
         return;
     }
     grid.innerHTML = repos.slice(0, 8).map(repo => `
-        <div class="project-card">
+        <div class="project-card" data-repo='${JSON.stringify(repo).replace(/'/g, "&apos;")}'>
             <div class="project-header">
                 <h3 class="project-title">${repo.name}</h3>
                 <span class="project-date">${new Date(repo.updated_at).getFullYear()}</span>
@@ -163,9 +163,156 @@ function renderGitHubRepos(repos) {
             </div>
             <div class="project-links">
                 <a href="${repo.html_url}" target="_blank" class="btn btn-secondary">View Repo</a>
+                <button class="btn btn-primary view-details-btn" aria-label="View project details">
+                    <i class="fas fa-info-circle"></i> Details
+                </button>
             </div>
         </div>
     `).join('');
+    
+    // Add click event listeners for detail buttons
+    initProjectModalHandlers();
+}
+
+// Initialize modal handlers for project cards
+function initProjectModalHandlers() {
+    const detailButtons = document.querySelectorAll('.view-details-btn');
+    const modal = document.getElementById('project-modal');
+    const modalOverlay = modal.querySelector('.modal-overlay');
+    const modalClose = modal.querySelector('.modal-close');
+    
+    detailButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const card = button.closest('.project-card');
+            const repoData = JSON.parse(card.dataset.repo);
+            openProjectModal(repoData);
+        });
+    });
+    
+    // Close modal handlers
+    const closeModal = () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    };
+    
+    modalOverlay.addEventListener('click', closeModal);
+    modalClose.addEventListener('click', closeModal);
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+            closeModal();
+        }
+    });
+    
+    // Focus trap for accessibility
+    modalClose.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab' && !e.shiftKey) {
+            e.preventDefault();
+            modalOverlay.focus();
+        }
+    });
+    
+    modalOverlay.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            closeModal();
+        }
+        if (e.key === 'Tab' && e.shiftKey) {
+            e.preventDefault();
+            modalClose.focus();
+        }
+    });
+}
+
+// Open project modal with details
+function openProjectModal(repo) {
+    const modal = document.getElementById('project-modal');
+    const modalTitle = modal.querySelector('.modal-project-title');
+    const modalMeta = modal.querySelector('.modal-project-meta');
+    const modalDescription = modal.querySelector('.modal-project-description');
+    const modalLanguages = modal.querySelector('.modal-project-languages');
+    const modalTopics = modal.querySelector('.modal-project-topics');
+    const modalStats = modal.querySelector('.modal-project-stats');
+    const modalLinks = modal.querySelector('.modal-project-links');
+    
+    // Populate modal content
+    modalTitle.textContent = repo.name;
+    
+    modalMeta.innerHTML = `
+        <span><i class="fas fa-calendar"></i> Created: ${new Date(repo.created_at).toLocaleDateString()}</span>
+        <span><i class="fas fa-sync"></i> Updated: ${new Date(repo.updated_at).toLocaleDateString()}</span>
+        ${repo.size ? `<span><i class="fas fa-database"></i> Size: ${(repo.size / 1024).toFixed(2)} MB</span>` : ''}
+    `;
+    
+    modalDescription.textContent = repo.description || 'No description available for this project.';
+    
+    modalLanguages.innerHTML = repo.language 
+        ? `<div class="timeline-skills">
+            <span class="skill-tag"><i class="fas fa-code"></i> ${repo.language}</span>
+           </div>`
+        : '';
+    
+    modalTopics.innerHTML = repo.topics && repo.topics.length 
+        ? `<div class="timeline-skills">
+            ${repo.topics.map(topic => `<span class="skill-tag"><i class="fas fa-tag"></i> ${topic}</span>`).join('')}
+           </div>`
+        : '';
+    
+    modalStats.innerHTML = `
+        <div class="stat-item">
+            <i class="fas fa-star"></i>
+            <div>
+                <div style="font-size: 1.5rem; font-weight: 700; color: var(--color-primary);">${repo.stargazers_count}</div>
+                <div style="font-size: 0.875rem; color: var(--text-tertiary);">Stars</div>
+            </div>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-code-branch"></i>
+            <div>
+                <div style="font-size: 1.5rem; font-weight: 700; color: var(--color-primary);">${repo.forks_count}</div>
+                <div style="font-size: 0.875rem; color: var(--text-tertiary);">Forks</div>
+            </div>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-eye"></i>
+            <div>
+                <div style="font-size: 1.5rem; font-weight: 700; color: var(--color-primary);">${repo.watchers_count}</div>
+                <div style="font-size: 0.875rem; color: var(--text-tertiary);">Watchers</div>
+            </div>
+        </div>
+        ${repo.open_issues_count !== undefined ? `
+        <div class="stat-item">
+            <i class="fas fa-exclamation-circle"></i>
+            <div>
+                <div style="font-size: 1.5rem; font-weight: 700; color: var(--color-primary);">${repo.open_issues_count}</div>
+                <div style="font-size: 0.875rem; color: var(--text-tertiary);">Issues</div>
+            </div>
+        </div>` : ''}
+    `;
+    
+    modalLinks.innerHTML = `
+        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fab fa-github"></i> View on GitHub
+        </a>
+        ${repo.homepage ? `
+            <a href="${repo.homepage}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+        ` : ''}
+        ${repo.clone_url ? `
+            <button class="btn btn-tertiary" onclick="navigator.clipboard.writeText('${repo.clone_url}')" aria-label="Copy clone URL">
+                <i class="fas fa-copy"></i> Copy Clone URL
+            </button>
+        ` : ''}
+    `;
+    
+    // Show modal
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    
+    // Focus on close button for accessibility
+    modal.querySelector('.modal-close').focus();
 }
 
 async function initGitHub() {
