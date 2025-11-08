@@ -40,6 +40,18 @@
           rel="stylesheet" 
           onerror="this.onerror=null;this.href='https://fonts.bunny.net/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap';">
     
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+        /* Critical styles for initial render */
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;color:#1e293b;scroll-behavior:smooth;background:linear-gradient(135deg,#f8fafc 0%,#fff 50%,#f8fafc 100%);min-height:100vh}
+        .preloader{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#2563eb,#7c3aed);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s ease,visibility .5s ease}
+        .preloader.hidden{opacity:0;visibility:hidden}
+        .site-header{background-color:rgba(255,255,255,.98);padding:1.2rem 0;position:fixed;width:100%;top:0;z-index:1000;backdrop-filter:blur(12px);box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);transition:all .4s cubic-bezier(.4,0,.2,1)}
+        .main-nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 2rem}
+        .hero-section{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#667eea 0%,#764ba2 50%,#667eea 100%);margin-top:80px}
+        .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+    </style>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <!-- Add preconnect for external resources -->
