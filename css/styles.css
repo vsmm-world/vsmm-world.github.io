@@ -398,7 +398,7 @@ body {
 }
 
 .site-logo .site-title {
-    color: var(--color-white);
+    color: var(--text-primary);
     font-size: 1.8rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -2914,6 +2914,14 @@ body.dark-mode {
 body.dark-mode .site-header {
     background-color: rgba(15, 15, 35, 0.95);
     border-bottom: 1px solid rgba(67, 97, 238, 0.2);
+}
+
+body.dark-mode .site-logo .site-title {
+    color: #f8f9fd;
+}
+
+body.dark-mode .site-logo .site-title sup {
+    color: #4361ee;
 }
 
 body.dark-mode .nav-menu {

@@ -340,16 +340,29 @@ function initThemeToggle() {
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.body.classList.toggle('dark-mode', savedTheme === 'dark');
     updateThemeIcon(themeIcon, savedTheme === 'dark');
+    updateMetaThemeColor(savedTheme === 'dark');
 
     themeToggle.addEventListener('click', () => {
         const isDark = document.body.classList.toggle('dark-mode');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
         updateThemeIcon(themeIcon, isDark);
+        updateMetaThemeColor(isDark);
     });
 }
 
 function updateThemeIcon(icon, isDark) {
     icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+}
+
+function updateMetaThemeColor(isDark) {
+    // Update meta theme-color tag for browser UI
+    let metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (!metaThemeColor) {
+        metaThemeColor = document.createElement('meta');
+        metaThemeColor.setAttribute('name', 'theme-color');
+        document.head.appendChild(metaThemeColor);
+    }
+    metaThemeColor.setAttribute('content', isDark ? '#0f0f23' : '#4361ee');
 }
 
 // Enhanced Header Scroll Effect
