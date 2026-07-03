@@ -1,22 +1,25 @@
 # Ravindra Valand — Portfolio Website
 
-Live at **[vsmm-world.github.io](https://vsmm-world.github.io)** — a sci-fi themed, single-page personal portfolio built with vanilla HTML, CSS, and JavaScript (no framework, no build step, no dependencies beyond CDN fonts/icons).
+Live at **[vsmm-world.github.io](https://vsmm-world.github.io)** — a sci-fi "command console" themed personal portfolio built with vanilla HTML, CSS, and JavaScript (no framework, no build step, no dependencies beyond CDN fonts/icons).
 
 ## Features
 
-- **Sci-fi visual system**: deep-space canvas particle network (reacts to the mouse), scanline overlay, neon cyan/purple glass panels, glitch-text hero name, terminal-style boot sequence preloader
-- **Mouse interactivity**: custom cursor (dot + lagging ring that expands over links), 3D tilt on project/skill cards, magnetic buttons
-- **Motion**: scroll-triggered reveals, animated skill bars, count-up stats, typewriter role text — all respect `prefers-reduced-motion`
-- **Live GitHub data**: public repo count, total stars/forks, followers, a language breakdown computed from your repos, and a contribution heatmap — all fetched live via the GitHub REST API, not hardcoded
-- **Real content only**: no placeholder testimonials or fabricated employment history — the About/Timeline sections reflect actual freelance work and real repos
-- **Functional contact form**: submits via `mailto:` (opens the visitor's email client) — no third-party form backend, no fake "success" simulation
+- **Command console layout**: fixed left icon nav rail (not a top navbar), a HUD telemetry strip up top (live IST clock, status indicator, current-section readout, scroll progress), all content living in a full-height main column
+- **Terminal-window hero**: identity presented as a typed terminal session (`whoami`, `role --current`, `stats --live`) next to a hex-clipped ID badge with a scanning line and live-updating data rows
+- **Skill constellation**: skills rendered as an orbiting node diagram in three concentric rings (Expert / Advanced / Growing) around a central core, with hover tooltips — falls back to a plain list under 820px width
+- **Drag-scroll project deck**: featured projects in a horizontally draggable, scroll-snapping deck with prev/next controls and a progress bar
+- **Radial telemetry + donut chart**: GitHub stats as animated SVG radial gauges, language breakdown as an SVG donut chart, top repos as a compact ticker list
+- **Horizontal "mission log" timeline**: career/project history scrolls sideways along a glowing rail instead of a vertical line
+- **Terminal-CLI contact form**: styled as a shell prompt session, submits via `mailto:` (opens the visitor's email client) — no third-party backend, no fake "success" simulation
+- **Sci-fi visual system**: deep-space canvas particle network reacting to the mouse, a rotating radar-sweep overlay, scanline/vignette overlays, glitch-text name, custom reticle cursor, 3D tilt cards, magnetic buttons — all respecting `prefers-reduced-motion` and auto-disabling on touch devices
+- **Live GitHub data**: repos/stars/followers/forks, language breakdown, and top repos — all fetched live via the GitHub REST API, not hardcoded
+- **Real content only**: no placeholder testimonials or fabricated employment history — About/Mission Log reflect actual freelance work and real repos
 - SEO: meta tags, Open Graph, Twitter Card, JSON-LD structured data, `sitemap.xml`, `robots.txt`
-- Accessible: semantic HTML, ARIA labels, keyboard navigation, custom cursor auto-disables on touch devices
 
 ## Tech Stack
 
-- HTML5, CSS3, vanilla JavaScript (Canvas API, IntersectionObserver)
-- GitHub REST API (for the live stats/projects sections)
+- HTML5, CSS3, vanilla JavaScript (Canvas API, SVG, IntersectionObserver)
+- GitHub REST API (for the live telemetry section)
 - Hosted on GitHub Pages
 
 ## Project Structure
@@ -24,9 +27,9 @@ Live at **[vsmm-world.github.io](https://vsmm-world.github.io)** — a sci-fi th
 ```
 index.html              # Main page markup
 css/
-└── styles.css           # Design system, sci-fi effects, responsive layout
+└── styles.css           # Design system, HUD/rail/terminal/orbit/deck/gauge components, responsive layout
 js/
-└── main.js              # Particle canvas, cursor, tilt/magnetic, reveals, GitHub API fetch, contact form
+└── main.js              # Particle canvas, cursor, tilt/magnetic, HUD clock, orbit tooltips, deck drag-scroll, GitHub API fetch, contact form
 assets/
 └── images/              # Profile images
 sitemap.xml
@@ -46,7 +49,7 @@ Then open `http://localhost:8000`.
 
 ## Customizing / Extending
 
-See **[PORTFOLIO_README.md](PORTFOLIO_README.md)** for the developer guide — updating content, tuning the particle/cursor effects, adjusting the color system, and the GitHub API rate-limit notes.
+See **[PORTFOLIO_README.md](PORTFOLIO_README.md)** for the developer guide — updating content, tuning the orbit/deck/gauge components, adjusting the color system, and GitHub API rate-limit notes.
 
 ## Author
 

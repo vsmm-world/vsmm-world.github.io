@@ -12,14 +12,12 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#05070f">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vsmm-world.github.io/">
     <meta property="og:title" content="Ravindra Valand - Full Stack Developer">
     <meta property="og:description" content="Freelance Full Stack Developer (3 years) building NestJS, React, MongoDB and Prisma-powered systems, plus Android and Electron apps.">
     <meta property="og:image" content="https://vsmm-world.github.io/assets/images/Ravindra-Valand.png">
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://vsmm-world.github.io/">
     <meta property="twitter:title" content="Ravindra Valand - Full Stack Developer">
@@ -56,31 +54,16 @@
                 "url": "https://vsmm-world.github.io/",
                 "image": "https://vsmm-world.github.io/assets/images/Ravindra-Valand.png",
                 "email": "rvpc792@gmail.com",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Ahmedabad",
-                    "addressRegion": "Gujarat",
-                    "addressCountry": "IN"
-                },
+                "address": { "@type": "PostalAddress", "addressLocality": "Ahmedabad", "addressRegion": "Gujarat", "addressCountry": "IN" },
                 "sameAs": [
                     "https://github.com/vsmm-world",
                     "https://linkedin.com/in/ravindra-valand",
                     "https://twitter.com/Mhz_144",
                     "https://instagram.com/ravindra_valand"
                 ],
-                "knowsAbout": [
-                    "JavaScript", "TypeScript", "React", "Node.js", "Express.js", "NestJS",
-                    "MongoDB", "Prisma", "Java", "Spring Boot", "Android Development",
-                    "Electron", "Docker", "REST APIs"
-                ]
+                "knowsAbout": ["JavaScript", "TypeScript", "React", "Node.js", "Express.js", "NestJS", "MongoDB", "Prisma", "Java", "Spring Boot", "Android Development", "Electron", "Docker", "REST APIs"]
             },
-            {
-                "@type": "WebSite",
-                "name": "Ravindra Valand Portfolio",
-                "url": "https://vsmm-world.github.io/",
-                "author": { "@type": "Person", "name": "Ravindra Valand" },
-                "inLanguage": "en-US"
-            }
+            { "@type": "WebSite", "name": "Ravindra Valand Portfolio", "url": "https://vsmm-world.github.io/", "author": { "@type": "Person", "name": "Ravindra Valand" }, "inLanguage": "en-US" }
         ]
     }
     </script>
@@ -88,117 +71,117 @@
 
 <body class="page-wrapper">
 
-    <!-- Boot sequence preloader -->
     <div id="preloader" class="preloader" aria-hidden="true">
-        <div class="boot-lines" id="boot-lines"></div>
+        <div class="boot-window">
+            <div class="boot-titlebar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="boot-titlebar-label">guest@ravindra-valand:~</span></div>
+            <div class="boot-lines" id="boot-lines"></div>
+        </div>
     </div>
 
-    <!-- Custom cursor -->
     <div class="cursor-dot" id="cursor-dot"></div>
-    <div class="cursor-ring" id="cursor-ring"></div>
+    <div class="cursor-ring" id="cursor-ring"><span class="reticle-tick reticle-tick-t"></span><span class="reticle-tick reticle-tick-r"></span><span class="reticle-tick reticle-tick-b"></span><span class="reticle-tick reticle-tick-l"></span></div>
 
-    <!-- Fixed canvas background -->
     <canvas id="fx-canvas" aria-hidden="true"></canvas>
     <div class="scanlines" aria-hidden="true"></div>
     <div class="vignette" aria-hidden="true"></div>
 
-    <header class="site-header" id="site-header">
-        <nav class="main-nav">
-            <a href="#hero" class="site-logo" aria-label="Home">
-                <span class="logo-bracket">[</span>RV<span class="logo-bracket">]</span>
-            </a>
-            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-                <span class="toggle-bar"></span>
-                <span class="toggle-bar"></span>
-                <span class="toggle-bar"></span>
-            </button>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                <li class="nav-item"><a href="#github" class="nav-link">GitHub</a></li>
-                <li class="nav-item"><a href="#timeline" class="nav-link">Timeline</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- HUD top telemetry strip -->
+    <div class="hud-topbar">
+        <div class="hud-topbar-inner">
+            <span class="hud-item"><span class="hud-dot"></span> STATUS: ONLINE</span>
+            <span class="hud-item hud-sep">AHMEDABAD, IN · 23.02°N 72.57°E</span>
+            <span class="hud-item hud-clock" id="hud-clock">--:--:--</span>
+            <span class="hud-item hud-section" id="hud-section">§ HOME</span>
+        </div>
+        <div class="scroll-progress"><div class="scroll-progress-fill" id="scroll-fill"></div></div>
+    </div>
 
-    <!-- HERO -->
-    <section id="hero" class="hero-section">
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="container hero-container">
-            <div class="hero-content">
-                <p class="hero-eyebrow reveal"><span class="eyebrow-dot"></span> AVAILABLE FOR FREELANCE WORK</p>
-                <h1 class="hero-title reveal">
-                    <span class="hero-hi">Hi, I'm</span>
-                    <span class="glitch-name" data-text="Ravindra Valand">
-                        <span class="glitch-name-base">Ravindra Valand</span>
-                    </span>
-                </h1>
-                <p class="hero-role reveal"><span id="typewriter"></span><span class="caret">_</span></p>
-                <p class="hero-description reveal">
-                    Freelance Full Stack Developer based in Ahmedabad, India — 3 years turning
-                    ideas into production systems across web APIs, dashboards, Android apps and
-                    desktop tools. NestJS &amp; Node.js on the backend, React on the front, MongoDB/Prisma
-                    underneath.
-                </p>
+    <!-- Sidebar nav rail (desktop) / bottom bar (mobile) -->
+    <nav class="nav-rail" id="nav-rail" aria-label="Primary">
+        <a href="#hero" class="nav-rail-logo" aria-label="Home"><span class="logo-hex">RV</span></a>
+        <ul class="nav-rail-list">
+            <li><a href="#hero" class="nav-rail-link active" data-label="Home"><i class="fas fa-satellite-dish"></i></a></li>
+            <li><a href="#about" class="nav-rail-link" data-label="About"><i class="fas fa-user-astronaut"></i></a></li>
+            <li><a href="#skills" class="nav-rail-link" data-label="Skills"><i class="fas fa-atom"></i></a></li>
+            <li><a href="#projects" class="nav-rail-link" data-label="Projects"><i class="fas fa-layer-group"></i></a></li>
+            <li><a href="#github" class="nav-rail-link" data-label="GitHub"><i class="fas fa-code-branch"></i></a></li>
+            <li><a href="#timeline" class="nav-rail-link" data-label="Timeline"><i class="fas fa-route"></i></a></li>
+            <li><a href="#contact" class="nav-rail-link" data-label="Contact"><i class="fas fa-tower-broadcast"></i></a></li>
+        </ul>
+        <button class="theme-pulse" aria-hidden="true"><span></span></button>
+    </nav>
 
-                <div class="hero-stats reveal">
-                    <div class="stat-item">
-                        <span class="stat-number" data-count="3" data-suffix="+">0</span>
-                        <span class="stat-label">Years Experience</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" id="stat-repos" data-suffix="+">0</span>
-                        <span class="stat-label">Public Repositories</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-count="4" data-suffix="">0</span>
-                        <span class="stat-label">Multi-Repo Products Shipped</span>
+    <main class="main-content">
+
+        <!-- HERO -->
+        <section id="hero" class="hero-section">
+            <div class="radar-sweep" aria-hidden="true"></div>
+            <div class="hero-grid" aria-hidden="true"></div>
+            <div class="container hero-container">
+
+                <div class="hero-terminal reveal-l">
+                    <div class="term-titlebar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="boot-titlebar-label">guest@ravindra-valand:~</span></div>
+                    <div class="term-body">
+                        <p class="term-line"><span class="term-prompt">$</span> whoami</p>
+                        <h1 class="glitch-name" data-text="Ravindra Valand"><span class="glitch-name-base">Ravindra Valand</span></h1>
+
+                        <p class="term-line"><span class="term-prompt">$</span> role --current</p>
+                        <p class="term-out hero-role"><span id="typewriter"></span><span class="caret">_</span></p>
+
+                        <p class="term-line"><span class="term-prompt">$</span> cat mission.txt</p>
+                        <p class="term-out hero-description">
+                            Freelance Full Stack Developer based in Ahmedabad, India — 3 years turning
+                            ideas into production systems across web APIs, dashboards, Android apps and
+                            desktop tools. NestJS &amp; Node.js on the backend, React on the front.
+                        </p>
+
+                        <p class="term-line"><span class="term-prompt">$</span> stats --live</p>
+                        <div class="hero-stats">
+                            <div class="stat-chip"><span class="stat-number" data-count="3" data-suffix="+">0</span><span class="stat-label">Years Exp.</span></div>
+                            <div class="stat-chip"><span class="stat-number" id="stat-repos" data-suffix="+">0</span><span class="stat-label">Public Repos</span></div>
+                            <div class="stat-chip"><span class="stat-number" data-count="4" data-suffix="">0</span><span class="stat-label">Products Shipped</span></div>
+                        </div>
+
+                        <p class="term-line"><span class="term-prompt">$</span> ./connect.sh</p>
+                        <div class="hero-actions">
+                            <a href="#projects" class="btn btn-primary magnetic"><i class="fas fa-satellite-dish"></i> View My Work</a>
+                            <a href="#contact" class="btn btn-secondary magnetic"><i class="fas fa-paper-plane"></i> Let's Connect</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="hero-actions reveal">
-                    <a href="#projects" class="btn btn-primary magnetic">
-                        <i class="fas fa-satellite-dish"></i> View My Work
-                    </a>
-                    <a href="#contact" class="btn btn-secondary magnetic">
-                        <i class="fas fa-paper-plane"></i> Let's Connect
-                    </a>
-                </div>
-            </div>
-
-            <div class="hero-visual reveal">
-                <div class="hero-image-frame tilt">
-                    <img src="assets/images/Ravindra-Valand.png" alt="Ravindra Valand" class="hero-image hero-image-ghost" aria-hidden="true">
-                    <img src="assets/images/Ravindra-Valand.png" alt="Ravindra Valand — Full Stack Developer" class="hero-image">
-                    <div class="hero-image-ring"></div>
+                <aside class="hero-id-badge reveal-r tilt">
+                    <div class="id-photo-hex">
+                        <img src="assets/images/Ravindra-Valand.png" alt="Ravindra Valand" class="id-photo">
+                        <div class="id-scanline"></div>
+                    </div>
+                    <div class="id-readout">
+                        <div class="id-row"><span class="id-key">NAME</span><span class="id-val">R. VALAND</span></div>
+                        <div class="id-row"><span class="id-key">ROLE</span><span class="id-val">FULL STACK DEV</span></div>
+                        <div class="id-row"><span class="id-key">BASE</span><span class="id-val">AHMEDABAD, IN</span></div>
+                        <div class="id-row"><span class="id-key">CLEARANCE</span><span class="id-val id-val-cyan">FREELANCE</span></div>
+                    </div>
                     <div class="hero-corner hero-corner-tl"></div>
                     <div class="hero-corner hero-corner-tr"></div>
                     <div class="hero-corner hero-corner-bl"></div>
                     <div class="hero-corner hero-corner-br"></div>
-                </div>
+                </aside>
             </div>
-        </div>
-        <a href="#about" class="hero-scroll-indicator" aria-label="Scroll down">
-            <span>Scroll</span>
-            <i class="fas fa-chevron-down"></i>
-        </a>
-    </section>
-
-    <main class="main-content">
+            <a href="#about" class="hero-scroll-indicator" aria-label="Scroll down"><span>Scroll</span><i class="fas fa-chevron-down"></i></a>
+        </section>
 
         <!-- ABOUT -->
         <section id="about" class="section about-section">
             <div class="container">
-                <h2 class="section-title reveal"><span class="title-bracket">&lt;</span>About Me<span class="title-bracket">/&gt;</span></h2>
+                <h2 class="section-title reveal"><span class="title-index">01</span>About<span class="title-bracket">/&gt;</span></h2>
                 <div class="about-content">
-                    <div class="about-visual tilt reveal">
-                        <img src="assets/images/Ravindra-Valand1.png" alt="Ravindra Valand" class="profile-image" loading="lazy">
-                        <div class="about-frame"></div>
+                    <div class="about-visual tilt reveal-l">
+                        <div class="id-photo-hex id-photo-hex-lg">
+                            <img src="assets/images/Ravindra-Valand1.png" alt="Ravindra Valand" class="id-photo" loading="lazy">
+                            <div class="id-scanline"></div>
+                        </div>
                     </div>
-                    <div class="about-description reveal">
+                    <div class="about-description reveal-r">
                         <p class="about-text">
                             I'm Ravindra Valand — a freelance full-stack developer working out of
                             Ahmedabad, Gujarat, India. Over the past 3 years I've built and shipped
@@ -212,15 +195,11 @@
                             depending on what the project needs. I lean on AI-assisted tooling
                             (GitHub Copilot, Cursor) to move faster without cutting corners on structure.
                         </p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">NestJS</span>
-                            <span class="tech-badge">React</span>
-                            <span class="tech-badge">Node.js</span>
-                            <span class="tech-badge">MongoDB</span>
-                            <span class="tech-badge">Prisma</span>
-                            <span class="tech-badge">TypeScript</span>
-                            <span class="tech-badge">Docker</span>
-                            <span class="tech-badge">Android</span>
+                        <div class="marquee">
+                            <div class="marquee-track">
+                                <span class="tech-badge">NestJS</span><span class="tech-badge">React</span><span class="tech-badge">Node.js</span><span class="tech-badge">MongoDB</span><span class="tech-badge">Prisma</span><span class="tech-badge">TypeScript</span><span class="tech-badge">Docker</span><span class="tech-badge">Android</span>
+                                <span class="tech-badge">NestJS</span><span class="tech-badge">React</span><span class="tech-badge">Node.js</span><span class="tech-badge">MongoDB</span><span class="tech-badge">Prisma</span><span class="tech-badge">TypeScript</span><span class="tech-badge">Docker</span><span class="tech-badge">Android</span>
+                            </div>
                         </div>
                         <div class="social-links">
                             <a href="https://github.com/vsmm-world" target="_blank" rel="noopener noreferrer" class="social-link magnetic" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
@@ -233,46 +212,78 @@
             </div>
         </section>
 
-        <!-- SKILLS -->
+        <!-- SKILLS: orbit constellation -->
         <section id="skills" class="section skills-section">
             <div class="container">
-                <h2 class="section-title reveal"><span class="title-bracket">&lt;</span>Skills &amp; Stack<span class="title-bracket">/&gt;</span></h2>
-                <p class="section-subtitle reveal">Self-rated proficiency, based on what I've actually shipped across ~40 repositories.</p>
-                <div class="skills-grid">
-                    <div class="skill-card reveal"><i class="fab fa-js skill-icon"></i><span class="skill-name">JavaScript</span><div class="skill-level">Expert</div><div class="skill-progress"><div class="progress-bar" data-width="95"></div></div></div>
-                    <div class="skill-card reveal"><i class="fas fa-code skill-icon"></i><span class="skill-name">TypeScript</span><div class="skill-level">Expert</div><div class="skill-progress"><div class="progress-bar" data-width="92"></div></div></div>
-                    <div class="skill-card reveal"><i class="fab fa-node-js skill-icon"></i><span class="skill-name">Node.js / Express</span><div class="skill-level">Expert</div><div class="skill-progress"><div class="progress-bar" data-width="93"></div></div></div>
-                    <div class="skill-card reveal"><i class="fas fa-cubes skill-icon"></i><span class="skill-name">NestJS</span><div class="skill-level">Advanced</div><div class="skill-progress"><div class="progress-bar" data-width="88"></div></div></div>
-                    <div class="skill-card reveal"><i class="fab fa-react skill-icon"></i><span class="skill-name">React</span><div class="skill-level">Advanced</div><div class="skill-progress"><div class="progress-bar" data-width="85"></div></div></div>
-                    <div class="skill-card reveal"><i class="fas fa-database skill-icon"></i><span class="skill-name">MongoDB / Prisma</span><div class="skill-level">Advanced</div><div class="skill-progress"><div class="progress-bar" data-width="87"></div></div></div>
-                    <div class="skill-card reveal"><i class="fab fa-android skill-icon"></i><span class="skill-name">Android / Kotlin</span><div class="skill-level">Intermediate</div><div class="skill-progress"><div class="progress-bar" data-width="65"></div></div></div>
-                    <div class="skill-card reveal"><i class="fas fa-desktop skill-icon"></i><span class="skill-name">Electron</span><div class="skill-level">Intermediate</div><div class="skill-progress"><div class="progress-bar" data-width="68"></div></div></div>
-                    <div class="skill-card reveal"><i class="fab fa-java skill-icon"></i><span class="skill-name">Java / Spring Boot</span><div class="skill-level">Intermediate</div><div class="skill-progress"><div class="progress-bar" data-width="60"></div></div></div>
-                    <div class="skill-card reveal"><i class="fab fa-docker skill-icon"></i><span class="skill-name">Docker</span><div class="skill-level">Intermediate</div><div class="skill-progress"><div class="progress-bar" data-width="70"></div></div></div>
-                    <div class="skill-card reveal"><i class="fab fa-git-alt skill-icon"></i><span class="skill-name">Git</span><div class="skill-level">Advanced</div><div class="skill-progress"><div class="progress-bar" data-width="90"></div></div></div>
-                    <div class="skill-card reveal"><i class="fab fa-php skill-icon"></i><span class="skill-name">PHP</span><div class="skill-level">Basic</div><div class="skill-progress"><div class="progress-bar" data-width="45"></div></div></div>
+                <h2 class="section-title reveal"><span class="title-index">02</span>Skill Constellation<span class="title-bracket">/&gt;</span></h2>
+                <p class="section-subtitle reveal">Self-rated proficiency, grouped by orbit — grounded in ~40 shipped repositories.</p>
+
+                <div class="orbit-system reveal" id="orbit-system">
+                    <div class="orbit-core"><span>RV</span></div>
+
+                    <div class="orbit-ring orbit-ring-1"><div class="orbit-track"></div></div>
+                    <div class="orbit-ring orbit-ring-2"><div class="orbit-track"></div></div>
+                    <div class="orbit-ring orbit-ring-3"><div class="orbit-track"></div></div>
+
+                    <!-- Ring 1 — Expert (radius ~110) -->
+                    <div class="orbit-node" style="--angle:0deg;--radius:110px" data-name="JavaScript" data-level="Expert · 95%"><div class="orbit-node-inner"><i class="fab fa-js"></i></div></div>
+                    <div class="orbit-node" style="--angle:120deg;--radius:110px" data-name="TypeScript" data-level="Expert · 92%"><div class="orbit-node-inner"><i class="fas fa-code"></i></div></div>
+                    <div class="orbit-node" style="--angle:240deg;--radius:110px" data-name="Node.js / Express" data-level="Expert · 93%"><div class="orbit-node-inner"><i class="fab fa-node-js"></i></div></div>
+
+                    <!-- Ring 2 — Advanced (radius ~190) -->
+                    <div class="orbit-node" style="--angle:45deg;--radius:190px" data-name="NestJS" data-level="Advanced · 88%"><div class="orbit-node-inner"><i class="fas fa-cubes"></i></div></div>
+                    <div class="orbit-node" style="--angle:135deg;--radius:190px" data-name="React" data-level="Advanced · 85%"><div class="orbit-node-inner"><i class="fab fa-react"></i></div></div>
+                    <div class="orbit-node" style="--angle:225deg;--radius:190px" data-name="MongoDB / Prisma" data-level="Advanced · 87%"><div class="orbit-node-inner"><i class="fas fa-database"></i></div></div>
+                    <div class="orbit-node" style="--angle:315deg;--radius:190px" data-name="Git" data-level="Advanced · 90%"><div class="orbit-node-inner"><i class="fab fa-git-alt"></i></div></div>
+
+                    <!-- Ring 3 — Growing (radius ~270) -->
+                    <div class="orbit-node" style="--angle:18deg;--radius:270px" data-name="Android / Kotlin" data-level="Intermediate · 65%"><div class="orbit-node-inner"><i class="fab fa-android"></i></div></div>
+                    <div class="orbit-node" style="--angle:90deg;--radius:270px" data-name="Electron" data-level="Intermediate · 68%"><div class="orbit-node-inner"><i class="fas fa-desktop"></i></div></div>
+                    <div class="orbit-node" style="--angle:162deg;--radius:270px" data-name="Java / Spring Boot" data-level="Intermediate · 60%"><div class="orbit-node-inner"><i class="fab fa-java"></i></div></div>
+                    <div class="orbit-node" style="--angle:234deg;--radius:270px" data-name="Docker" data-level="Intermediate · 70%"><div class="orbit-node-inner"><i class="fab fa-docker"></i></div></div>
+                    <div class="orbit-node" style="--angle:306deg;--radius:270px" data-name="PHP" data-level="Basic · 45%"><div class="orbit-node-inner"><i class="fab fa-php"></i></div></div>
+
+                    <div class="orbit-tooltip" id="orbit-tooltip"><strong id="orbit-tooltip-name"></strong><span id="orbit-tooltip-level"></span></div>
+                </div>
+
+                <!-- Mobile fallback list -->
+                <div class="skills-fallback-list">
+                    <div class="skill-row"><i class="fab fa-js"></i><span>JavaScript</span><em>Expert · 95%</em></div>
+                    <div class="skill-row"><i class="fas fa-code"></i><span>TypeScript</span><em>Expert · 92%</em></div>
+                    <div class="skill-row"><i class="fab fa-node-js"></i><span>Node.js / Express</span><em>Expert · 93%</em></div>
+                    <div class="skill-row"><i class="fas fa-cubes"></i><span>NestJS</span><em>Advanced · 88%</em></div>
+                    <div class="skill-row"><i class="fab fa-react"></i><span>React</span><em>Advanced · 85%</em></div>
+                    <div class="skill-row"><i class="fas fa-database"></i><span>MongoDB / Prisma</span><em>Advanced · 87%</em></div>
+                    <div class="skill-row"><i class="fab fa-git-alt"></i><span>Git</span><em>Advanced · 90%</em></div>
+                    <div class="skill-row"><i class="fab fa-android"></i><span>Android / Kotlin</span><em>Intermediate · 65%</em></div>
+                    <div class="skill-row"><i class="fas fa-desktop"></i><span>Electron</span><em>Intermediate · 68%</em></div>
+                    <div class="skill-row"><i class="fab fa-java"></i><span>Java / Spring Boot</span><em>Intermediate · 60%</em></div>
+                    <div class="skill-row"><i class="fab fa-docker"></i><span>Docker</span><em>Intermediate · 70%</em></div>
+                    <div class="skill-row"><i class="fab fa-php"></i><span>PHP</span><em>Basic · 45%</em></div>
                 </div>
             </div>
         </section>
 
-        <!-- FEATURED PROJECTS -->
+        <!-- FEATURED PROJECTS: horizontal deck -->
         <section id="projects" class="section projects-section">
-            <div class="container">
-                <h2 class="section-title reveal"><span class="title-bracket">&lt;</span>Featured Work<span class="title-bracket">/&gt;</span></h2>
-                <p class="section-subtitle reveal">The four products I'd point you to first.</p>
-                <div class="featured-grid">
+            <div class="container container-wide">
+                <div class="section-head-row reveal">
+                    <h2 class="section-title"><span class="title-index">03</span>Featured Work<span class="title-bracket">/&gt;</span></h2>
+                    <div class="deck-controls">
+                        <button class="deck-btn" id="deck-prev" aria-label="Previous project"><i class="fas fa-chevron-left"></i></button>
+                        <button class="deck-btn" id="deck-next" aria-label="Next project"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <p class="section-subtitle reveal">Drag, scroll, or use the arrows — four products I'd point you to first.</p>
 
-                    <article class="featured-card tilt reveal">
+                <div class="project-deck" id="project-deck">
+
+                    <article class="featured-card tilt">
                         <div class="featured-card-glow"></div>
                         <div class="featured-badge featured-badge-private"><i class="fas fa-lock"></i> Private client work</div>
                         <h3 class="featured-title">Anusutra Platform</h3>
                         <p class="featured-desc">A multi-repo product suite: admin dashboard, REST API, native Android app, and public web client — built and maintained as a single connected system.</p>
-                        <div class="project-tech-stack">
-                            <span class="tech-badge">NestJS/Express</span>
-                            <span class="tech-badge">React</span>
-                            <span class="tech-badge">Android/Kotlin</span>
-                            <span class="tech-badge">MongoDB</span>
-                        </div>
+                        <div class="project-tech-stack"><span class="tech-badge">NestJS/Express</span><span class="tech-badge">React</span><span class="tech-badge">Android/Kotlin</span><span class="tech-badge">MongoDB</span></div>
                         <div class="featured-repos">
                             <span class="repo-chip"><i class="fas fa-server"></i> anusutra-api</span>
                             <span class="repo-chip"><i class="fas fa-user-shield"></i> anusutra-admin</span>
@@ -281,17 +292,12 @@
                         </div>
                     </article>
 
-                    <article class="featured-card tilt reveal">
+                    <article class="featured-card tilt">
                         <div class="featured-card-glow"></div>
                         <div class="featured-badge featured-badge-private"><i class="fas fa-lock"></i> Private client work</div>
                         <h3 class="featured-title">Port Glint Suite</h3>
                         <p class="featured-desc">Another full-stack product family spanning a customer-facing app, an admin panel, a marketing web client, an API, and a companion Electron desktop app.</p>
-                        <div class="project-tech-stack">
-                            <span class="tech-badge">Node.js</span>
-                            <span class="tech-badge">React</span>
-                            <span class="tech-badge">Electron</span>
-                            <span class="tech-badge">MongoDB</span>
-                        </div>
+                        <div class="project-tech-stack"><span class="tech-badge">Node.js</span><span class="tech-badge">React</span><span class="tech-badge">Electron</span><span class="tech-badge">MongoDB</span></div>
                         <div class="featured-repos">
                             <span class="repo-chip"><i class="fas fa-server"></i> port-glint-api</span>
                             <span class="repo-chip"><i class="fas fa-user-shield"></i> port-glint-admin</span>
@@ -300,151 +306,113 @@
                         </div>
                     </article>
 
-                    <article class="featured-card tilt reveal">
+                    <article class="featured-card tilt">
                         <div class="featured-card-glow"></div>
                         <div class="featured-badge featured-badge-public"><i class="fas fa-globe"></i> Public</div>
                         <h3 class="featured-title">HRMS Platform</h3>
                         <p class="featured-desc">A Human Resource Management System: NestJS + Prisma backend with OTP-verified JWT auth, Redis-backed job queues and WebSockets, paired with a React + TypeScript + Vite frontend covering admin, employee and user dashboards.</p>
-                        <div class="project-tech-stack">
-                            <span class="tech-badge">NestJS</span>
-                            <span class="tech-badge">Prisma</span>
-                            <span class="tech-badge">Redis</span>
-                            <span class="tech-badge">React + Vite</span>
-                        </div>
+                        <div class="project-tech-stack"><span class="tech-badge">NestJS</span><span class="tech-badge">Prisma</span><span class="tech-badge">Redis</span><span class="tech-badge">React + Vite</span></div>
                         <div class="project-links">
                             <a href="https://github.com/vsmm-world/hrms-api" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm magnetic"><i class="fab fa-github"></i> API</a>
                             <a href="https://github.com/vsmm-world/hrms-app" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm magnetic"><i class="fab fa-github"></i> App</a>
                         </div>
                     </article>
 
-                    <article class="featured-card tilt reveal">
+                    <article class="featured-card tilt">
                         <div class="featured-card-glow"></div>
                         <div class="featured-badge featured-badge-public"><i class="fas fa-globe"></i> Public</div>
                         <h3 class="featured-title">NestJS E-Commerce API</h3>
                         <p class="featured-desc">A scalable e-commerce backend: catalog with variants, cart, orders, Stripe &amp; Razorpay payments, shipment tracking, PDF invoices, QR codes and scheduled email jobs — all on Prisma + MongoDB.</p>
-                        <div class="project-tech-stack">
-                            <span class="tech-badge">NestJS</span>
-                            <span class="tech-badge">Prisma</span>
-                            <span class="tech-badge">Stripe</span>
-                            <span class="tech-badge">Razorpay</span>
-                        </div>
+                        <div class="project-tech-stack"><span class="tech-badge">NestJS</span><span class="tech-badge">Prisma</span><span class="tech-badge">Stripe</span><span class="tech-badge">Razorpay</span></div>
                         <div class="project-links">
                             <a href="https://github.com/vsmm-world/nestjs-ecommerce-api" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm magnetic"><i class="fab fa-github"></i> View Code</a>
                         </div>
                     </article>
 
                 </div>
+                <div class="deck-progress"><div class="deck-progress-fill" id="deck-progress-fill"></div></div>
             </div>
         </section>
 
-        <!-- GITHUB STATS -->
+        <!-- GITHUB: radial gauges + donut -->
         <section id="github" class="section github-section">
             <div class="container">
-                <h2 class="section-title reveal"><span class="title-bracket">&lt;</span>Live GitHub Data<span class="title-bracket">/&gt;</span></h2>
-                <p class="section-subtitle reveal">Fetched live from the GitHub API — not a snapshot.</p>
+                <h2 class="section-title reveal"><span class="title-index">04</span>Live Telemetry<span class="title-bracket">/&gt;</span></h2>
+                <p class="section-subtitle reveal">Fetched live from the GitHub API on every page load — not a snapshot.</p>
 
-                <div class="github-profile-row reveal" id="github-profile-row">
-                    <div class="gh-stat-card">
-                        <i class="fas fa-code-branch gh-stat-icon"></i>
-                        <span class="gh-stat-number" id="gh-public-repos" data-suffix="">0</span>
-                        <span class="gh-stat-label">Public Repos</span>
+                <div class="gauge-row reveal">
+                    <div class="gauge" data-gauge="repos">
+                        <svg viewBox="0 0 120 120" class="gauge-svg"><circle class="gauge-track" cx="60" cy="60" r="52"/><circle class="gauge-fill" cx="60" cy="60" r="52"/></svg>
+                        <div class="gauge-center"><span class="gauge-number" id="gh-public-repos">0</span><span class="gauge-label">Repos</span></div>
                     </div>
-                    <div class="gh-stat-card">
-                        <i class="fas fa-star gh-stat-icon"></i>
-                        <span class="gh-stat-number" id="gh-total-stars" data-suffix="">0</span>
-                        <span class="gh-stat-label">Total Stars</span>
+                    <div class="gauge" data-gauge="stars">
+                        <svg viewBox="0 0 120 120" class="gauge-svg"><circle class="gauge-track" cx="60" cy="60" r="52"/><circle class="gauge-fill" cx="60" cy="60" r="52"/></svg>
+                        <div class="gauge-center"><span class="gauge-number" id="gh-total-stars">0</span><span class="gauge-label">Stars</span></div>
                     </div>
-                    <div class="gh-stat-card">
-                        <i class="fas fa-users gh-stat-icon"></i>
-                        <span class="gh-stat-number" id="gh-followers" data-suffix="">0</span>
-                        <span class="gh-stat-label">Followers</span>
+                    <div class="gauge" data-gauge="followers">
+                        <svg viewBox="0 0 120 120" class="gauge-svg"><circle class="gauge-track" cx="60" cy="60" r="52"/><circle class="gauge-fill" cx="60" cy="60" r="52"/></svg>
+                        <div class="gauge-center"><span class="gauge-number" id="gh-followers">0</span><span class="gauge-label">Followers</span></div>
                     </div>
-                    <div class="gh-stat-card">
-                        <i class="fas fa-code-fork gh-stat-icon"></i>
-                        <span class="gh-stat-number" id="gh-total-forks" data-suffix="">0</span>
-                        <span class="gh-stat-label">Total Forks</span>
+                    <div class="gauge" data-gauge="forks">
+                        <svg viewBox="0 0 120 120" class="gauge-svg"><circle class="gauge-track" cx="60" cy="60" r="52"/><circle class="gauge-fill" cx="60" cy="60" r="52"/></svg>
+                        <div class="gauge-center"><span class="gauge-number" id="gh-total-forks">0</span><span class="gauge-label">Forks</span></div>
                     </div>
                 </div>
 
                 <div class="github-panels">
-                    <div class="gh-panel reveal">
-                        <h3 class="gh-panel-title"><i class="fas fa-chart-bar"></i> Language Breakdown</h3>
-                        <div id="gh-languages" class="gh-languages">
-                            <div class="loading-spinner"></div>
+                    <div class="gh-panel reveal-l">
+                        <h3 class="gh-panel-title"><i class="fas fa-chart-pie"></i> Language Breakdown</h3>
+                        <div class="donut-wrap">
+                            <svg viewBox="0 0 120 120" class="donut-svg" id="donut-svg"></svg>
+                            <div class="donut-legend" id="donut-legend"><div class="loading-spinner"></div></div>
                         </div>
                     </div>
-                    <div class="gh-panel reveal">
+                    <div class="gh-panel reveal-r">
                         <h3 class="gh-panel-title"><i class="fas fa-fire"></i> Contribution Activity</h3>
-                        <div class="contribution-graph">
-                            <img src="https://ghchart.rshah.org/00fff2/vsmm-world" alt="GitHub Contributions" loading="lazy" />
-                        </div>
+                        <div class="contribution-graph"><img src="https://ghchart.rshah.org/00fff2/vsmm-world" alt="GitHub Contributions" loading="lazy" /></div>
+                        <h4 class="gh-panel-subtitle"><i class="fas fa-trophy"></i> Top Repositories</h4>
+                        <div id="repo-ticker" class="repo-ticker"><div class="loading-spinner"></div></div>
                     </div>
-                </div>
-
-                <h3 class="gh-panel-title gh-top-title reveal"><i class="fas fa-trophy"></i> Top Repositories by Stars</h3>
-                <div class="projects-grid" id="github-projects">
-                    <div class="loading-spinner"></div>
                 </div>
             </div>
         </section>
 
-        <!-- TIMELINE -->
+        <!-- TIMELINE: horizontal mission log -->
         <section id="timeline" class="section timeline-section">
-            <div class="container">
-                <h2 class="section-title reveal"><span class="title-bracket">&lt;</span>Timeline<span class="title-bracket">/&gt;</span></h2>
-                <div class="timeline">
-                    <div class="timeline-item reveal">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2023 — Present</div>
-                            <h3 class="timeline-title">Freelance Full Stack Developer</h3>
-                            <h4 class="timeline-company">Independent / Remote</h4>
-                            <p class="timeline-description">
-                                Designing and shipping full-stack products for clients end-to-end —
-                                APIs, admin panels, web clients, an Android app and an Electron
-                                desktop app — across the Anusutra, Port Glint and HRMS product lines.
-                            </p>
-                            <div class="timeline-skills">
-                                <span class="skill-tag">NestJS</span>
-                                <span class="skill-tag">React</span>
-                                <span class="skill-tag">MongoDB</span>
-                                <span class="skill-tag">Prisma</span>
+            <div class="container container-wide">
+                <h2 class="section-title reveal"><span class="title-index">05</span>Mission Log<span class="title-bracket">/&gt;</span></h2>
+                <p class="section-subtitle reveal">Scroll sideways to read the log.</p>
+                <div class="h-timeline">
+                    <div class="h-timeline-rail"></div>
+                    <div class="h-timeline-track">
+                        <div class="h-timeline-item">
+                            <div class="h-timeline-marker"></div>
+                            <div class="h-timeline-card">
+                                <div class="timeline-date">2023 — Present</div>
+                                <h3 class="timeline-title">Freelance Full Stack Developer</h3>
+                                <h4 class="timeline-company">Independent / Remote</h4>
+                                <p class="timeline-description">Designing and shipping full-stack products for clients end-to-end — APIs, admin panels, web clients, an Android app and an Electron desktop app — across the Anusutra, Port Glint and HRMS product lines.</p>
+                                <div class="timeline-skills"><span class="skill-tag">NestJS</span><span class="skill-tag">React</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Prisma</span></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="timeline-item reveal">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2024</div>
-                            <h3 class="timeline-title">Final-Year College Project</h3>
-                            <h4 class="timeline-company">Academic / Collaborative</h4>
-                            <p class="timeline-description">
-                                Contributed to a language-learning platform (Express, EJS, MongoDB)
-                                as a final-year college project — user auth, per-language lesson
-                                content, and an admin/content-management area.
-                            </p>
-                            <div class="timeline-skills">
-                                <span class="skill-tag">Express</span>
-                                <span class="skill-tag">EJS</span>
-                                <span class="skill-tag">Passport.js</span>
+                        <div class="h-timeline-item">
+                            <div class="h-timeline-marker"></div>
+                            <div class="h-timeline-card">
+                                <div class="timeline-date">2024</div>
+                                <h3 class="timeline-title">Final-Year College Project</h3>
+                                <h4 class="timeline-company">Academic / Collaborative</h4>
+                                <p class="timeline-description">Contributed to a language-learning platform (Express, EJS, MongoDB) as a final-year college project — user auth, per-language lesson content, and an admin/content-management area.</p>
+                                <div class="timeline-skills"><span class="skill-tag">Express</span><span class="skill-tag">EJS</span><span class="skill-tag">Passport.js</span></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="timeline-item reveal">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">Foundations</div>
-                            <h3 class="timeline-title">Self-Taught, Project by Project</h3>
-                            <h4 class="timeline-company">Hands-on learning</h4>
-                            <p class="timeline-description">
-                                Built up from JavaScript/Node.js fundamentals through a long series of
-                                small, focused projects — auth flows (session, JWT, Passport), CRUD
-                                apps, and framework starters — before moving into client work.
-                            </p>
-                            <div class="timeline-skills">
-                                <span class="skill-tag">JavaScript</span>
-                                <span class="skill-tag">Node.js</span>
-                                <span class="skill-tag">Express</span>
+                        <div class="h-timeline-item">
+                            <div class="h-timeline-marker"></div>
+                            <div class="h-timeline-card">
+                                <div class="timeline-date">Foundations</div>
+                                <h3 class="timeline-title">Self-Taught, Project by Project</h3>
+                                <h4 class="timeline-company">Hands-on learning</h4>
+                                <p class="timeline-description">Built up from JavaScript/Node.js fundamentals through a long series of small, focused projects — auth flows (session, JWT, Passport), CRUD apps, and framework starters — before moving into client work.</p>
+                                <div class="timeline-skills"><span class="skill-tag">JavaScript</span><span class="skill-tag">Node.js</span><span class="skill-tag">Express</span></div>
                             </div>
                         </div>
                     </div>
@@ -452,39 +420,37 @@
             </div>
         </section>
 
-        <!-- CONTACT -->
+        <!-- CONTACT: terminal CLI -->
         <section id="contact" class="section contact-section">
             <div class="container">
-                <h2 class="section-title reveal"><span class="title-bracket">&lt;</span>Let's Connect<span class="title-bracket">/&gt;</span></h2>
-                <div class="contact-wrapper">
-                    <p class="contact-intro reveal">Have a project in mind, or just want to talk shop? Send a message
-                        and it'll open straight in your email client — no form data goes anywhere else.</p>
-                    <form id="contact-form" class="contact-form reveal" novalidate>
-                        <div class="form-group">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
-                            <div class="form-error" id="name-error">Please enter your name</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
-                            <div class="form-error" id="email-error">Please enter a valid email address</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea id="message" name="message" class="form-textarea" required placeholder="Tell me about your project or idea..."></textarea>
-                            <div class="form-error" id="message-error">Please enter your message</div>
-                        </div>
-                        <button type="submit" class="btn btn-submit magnetic">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
+                <h2 class="section-title reveal"><span class="title-index">06</span>Transmit<span class="title-bracket">/&gt;</span></h2>
+                <p class="section-subtitle reveal">Fill the prompt below — it opens directly in your email client, no data goes anywhere else.</p>
+
+                <div class="contact-terminal reveal">
+                    <div class="term-titlebar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="boot-titlebar-label">guest@ravindra-valand:~/contact</span></div>
+                    <form id="contact-form" class="term-body contact-form-cli" novalidate>
+                        <p class="term-line"><span class="term-prompt">$</span> enter_name:</p>
+                        <input type="text" id="name" name="name" class="cli-input" autocomplete="name" required>
+                        <div class="form-error" id="name-error">// error: name required</div>
+
+                        <p class="term-line"><span class="term-prompt">$</span> enter_email:</p>
+                        <input type="email" id="email" name="email" class="cli-input" autocomplete="email" required>
+                        <div class="form-error" id="email-error">// error: valid email required</div>
+
+                        <p class="term-line"><span class="term-prompt">$</span> compose_message:</p>
+                        <textarea id="message" name="message" class="cli-textarea" required placeholder="type your message..."></textarea>
+                        <div class="form-error" id="message-error">// error: message required</div>
+
+                        <p class="term-line"><span class="term-prompt">$</span> ./send_message.sh</p>
+                        <button type="submit" class="btn btn-submit magnetic"><i class="fas fa-paper-plane"></i> Execute</button>
                     </form>
-                    <div class="contact-links reveal">
-                        <a href="https://github.com/vsmm-world" target="_blank" rel="noopener noreferrer" class="contact-link magnetic"><i class="fab fa-github"></i><span>Follow on GitHub</span></a>
-                        <a href="mailto:rvpc792@gmail.com" class="contact-link magnetic"><i class="fas fa-envelope"></i><span>Send an Email</span></a>
-                        <a href="https://linkedin.com/in/ravindra-valand" target="_blank" rel="noopener noreferrer" class="contact-link magnetic"><i class="fab fa-linkedin"></i><span>Connect on LinkedIn</span></a>
-                        <a href="https://calendly.com/rvpc792" target="_blank" rel="noopener noreferrer" class="contact-link magnetic"><i class="far fa-calendar-alt"></i><span>Schedule a Meeting</span></a>
-                    </div>
+                </div>
+
+                <div class="contact-links reveal">
+                    <a href="https://github.com/vsmm-world" target="_blank" rel="noopener noreferrer" class="contact-link magnetic"><i class="fab fa-github"></i><span>Follow on GitHub</span></a>
+                    <a href="mailto:rvpc792@gmail.com" class="contact-link magnetic"><i class="fas fa-envelope"></i><span>Send an Email</span></a>
+                    <a href="https://linkedin.com/in/ravindra-valand" target="_blank" rel="noopener noreferrer" class="contact-link magnetic"><i class="fab fa-linkedin"></i><span>Connect on LinkedIn</span></a>
+                    <a href="https://calendly.com/rvpc792" target="_blank" rel="noopener noreferrer" class="contact-link magnetic"><i class="far fa-calendar-alt"></i><span>Schedule a Meeting</span></a>
                 </div>
             </div>
         </section>
@@ -494,7 +460,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3 class="footer-title">Quick Links</h3>
+                    <h3 class="footer-title">// quick_links</h3>
                     <ul class="footer-links">
                         <li><a href="#about" class="footer-link">About</a></li>
                         <li><a href="#skills" class="footer-link">Skills</a></li>
@@ -504,7 +470,7 @@
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3 class="footer-title">Connect</h3>
+                    <h3 class="footer-title">// connect</h3>
                     <div class="social-links">
                         <a href="https://github.com/vsmm-world" target="_blank" rel="noopener noreferrer" class="social-link magnetic"><i class="fab fa-github"></i></a>
                         <a href="https://linkedin.com/in/ravindra-valand" target="_blank" rel="noopener noreferrer" class="social-link magnetic"><i class="fab fa-linkedin"></i></a>
@@ -514,9 +480,7 @@
             </div>
             <div class="footer-bottom">
                 <p class="copyright">&copy; <span id="footer-year"></span> Ravindra Valand. All rights reserved.</p>
-                <div class="footer-stats">
-                    <span class="stat-item" id="last-updated">Last updated: <span id="update-date" class="stat-value"></span></span>
-                </div>
+                <div class="footer-stats"><span class="stat-item">Last updated: <span id="update-date" class="stat-value"></span></span></div>
             </div>
         </div>
     </footer>

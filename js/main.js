@@ -1,7 +1,9 @@
 /* ============================================================
-   RAVINDRA VALAND — SCI-FI PORTFOLIO
-   Particle background, custom cursor, tilt/magnetic interactions,
-   scroll reveals, count-up stats, typewriter, live GitHub data.
+   RAVINDRA VALAND — SCI-FI COMMAND CONSOLE PORTFOLIO
+   Nav rail + HUD telemetry, particle background, custom reticle
+   cursor, tilt/magnetic, directional scroll reveals, orbit
+   constellation tooltips, drag-scroll project deck, radial
+   gauges + donut chart, live GitHub data, terminal contact form.
    ============================================================ */
 
 (function () {
@@ -17,10 +19,10 @@
         if (!el || !preloader) return;
 
         const lines = [
-            '> booting portfolio.exe',
-            '> loading modules ......... [OK]',
-            '> establishing uplink ...... [OK]',
-            '> rendering interface ...... [OK]',
+            '> booting command_console.sys',
+            '> loading modules .......... [OK]',
+            '> establishing uplink ....... [OK]',
+            '> calibrating HUD ........... [OK]',
             '> welcome, visitor.'
         ];
 
@@ -30,9 +32,7 @@
             return;
         }
 
-        let lineIndex = 0, charIndex = 0;
-        let out = '';
-
+        let lineIndex = 0, charIndex = 0, out = '';
         function typeNext() {
             if (lineIndex >= lines.length) {
                 el.innerHTML = out + '<span class="boot-caret">_</span>';
@@ -48,12 +48,11 @@
                 out += currentLine + '\n';
                 lineIndex++;
                 charIndex = 0;
-                setTimeout(typeNext, 120);
+                setTimeout(typeNext, 110);
             }
         }
         typeNext();
     }
-
     function hidePreloader(preloader) {
         preloader.classList.add('hidden');
         setTimeout(() => preloader.remove(), 500);
@@ -67,23 +66,17 @@
         let w, h, particles;
         const mouse = { x: null, y: null };
         const isSmall = window.innerWidth < 700;
-        const density = prefersReducedMotion ? 0 : (isSmall ? 45 : 90);
+        const density = prefersReducedMotion ? 0 : (isSmall ? 40 : 85);
 
-        function resize() {
-            w = canvas.width = window.innerWidth;
-            h = canvas.height = window.innerHeight;
-        }
+        function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
         function makeParticles() {
             particles = Array.from({ length: density }, () => ({
-                x: Math.random() * w,
-                y: Math.random() * h,
-                vx: (Math.random() - 0.5) * 0.35,
-                vy: (Math.random() - 0.5) * 0.35,
+                x: Math.random() * w, y: Math.random() * h,
+                vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
                 r: Math.random() * 1.6 + 0.6
             }));
         }
-        resize();
-        makeParticles();
+        resize(); makeParticles();
         window.addEventListener('resize', () => { resize(); makeParticles(); });
         window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
         window.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
@@ -95,7 +88,6 @@
                 p.x += p.vx; p.y += p.vy;
                 if (p.x < 0 || p.x > w) p.vx *= -1;
                 if (p.y < 0 || p.y > h) p.vy *= -1;
-
                 if (mouse.x !== null) {
                     const dx = p.x - mouse.x, dy = p.y - mouse.y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
@@ -105,23 +97,16 @@
                         p.y += (dy / dist) * force * 0.6;
                     }
                 }
-
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 255, 242, 0.55)';
-                ctx.fill();
-
+                ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 255, 242, 0.55)'; ctx.fill();
                 for (let j = i + 1; j < particles.length; j++) {
                     const q = particles[j];
                     const dx = p.x - q.x, dy = p.y - q.y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
                     if (dist < 118) {
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(q.x, q.y);
+                        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
                         ctx.strokeStyle = `rgba(168, 85, 247, ${0.18 * (1 - dist / 118)})`;
-                        ctx.lineWidth = 1;
-                        ctx.stroke();
+                        ctx.lineWidth = 1; ctx.stroke();
                     }
                 }
             }
@@ -130,39 +115,35 @@
         if (!prefersReducedMotion) requestAnimationFrame(tick);
     }
 
-    /* ---------------- custom cursor ---------------- */
+    /* ---------------- custom reticle cursor ---------------- */
     function initCustomCursor() {
         if (!hasFinePointer) return;
         const dot = document.getElementById('cursor-dot');
         const ring = document.getElementById('cursor-ring');
         if (!dot || !ring) return;
-
-        let mx = window.innerWidth / 2, my = window.innerHeight / 2;
-        let rx = mx, ry = my;
-
+        let mx = window.innerWidth / 2, my = window.innerHeight / 2, rx = mx, ry = my;
         window.addEventListener('mousemove', (e) => {
             mx = e.clientX; my = e.clientY;
             dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
         });
-
         function raf() {
-            rx += (mx - rx) * 0.16;
-            ry += (my - ry) * 0.16;
+            rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16;
             ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
             requestAnimationFrame(raf);
         }
         requestAnimationFrame(raf);
-
-        document.querySelectorAll('a, button, .tilt, .magnetic').forEach(el => {
+        document.querySelectorAll('a, button, .tilt, .magnetic, .orbit-node-inner').forEach(el => {
             el.addEventListener('mouseenter', () => ring.classList.add('active'));
             el.addEventListener('mouseleave', () => ring.classList.remove('active'));
         });
     }
 
-    /* ---------------- 3D tilt cards ---------------- */
+    /* ---------------- 3D tilt ---------------- */
     function initTilt() {
         if (!hasFinePointer || prefersReducedMotion) return;
         document.querySelectorAll('.tilt').forEach(card => {
+            if (card.dataset.tiltBound) return;
+            card.dataset.tiltBound = '1';
             card.style.transformStyle = 'preserve-3d';
             card.style.willChange = 'transform';
             card.addEventListener('mousemove', (e) => {
@@ -171,9 +152,7 @@
                 const y = (e.clientY - rect.top) / rect.height - 0.5;
                 card.style.transform = `perspective(800px) rotateX(${-y * 8}deg) rotateY(${x * 10}deg) translateZ(4px)`;
             });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateZ(0)';
-            });
+            card.addEventListener('mouseleave', () => { card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateZ(0)'; });
         });
     }
 
@@ -181,6 +160,8 @@
     function initMagnetic() {
         if (!hasFinePointer || prefersReducedMotion) return;
         document.querySelectorAll('.magnetic').forEach(el => {
+            if (el.dataset.magBound) return;
+            el.dataset.magBound = '1';
             el.addEventListener('mousemove', (e) => {
                 const rect = el.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
@@ -191,42 +172,20 @@
         });
     }
 
-    /* ---------------- scroll reveal ---------------- */
+    /* ---------------- directional scroll reveal ---------------- */
     function initScrollReveal() {
-        const items = document.querySelectorAll('.reveal');
+        const items = document.querySelectorAll('.reveal, .reveal-l, .reveal-r');
         if (!items.length) return;
-        if (prefersReducedMotion) {
-            items.forEach(el => el.classList.add('visible'));
-            return;
-        }
+        if (prefersReducedMotion) { items.forEach(el => el.classList.add('visible')); return; }
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
             });
-        }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
         items.forEach(el => observer.observe(el));
     }
 
-    /* ---------------- skill bars ---------------- */
-    function initSkillBars() {
-        const bars = document.querySelectorAll('.progress-bar');
-        if (!bars.length) return;
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const bar = entry.target;
-                    bar.style.width = bar.dataset.width + '%';
-                    observer.unobserve(bar);
-                }
-            });
-        }, { threshold: 0.4 });
-        bars.forEach(bar => observer.observe(bar));
-    }
-
-    /* ---------------- count-up stats ---------------- */
+    /* ---------------- count-up ---------------- */
     function animateCount(el, target, suffix) {
         const duration = 1400;
         const start = performance.now();
@@ -238,7 +197,6 @@
         }
         requestAnimationFrame(step);
     }
-
     function initCounters() {
         const counters = document.querySelectorAll('[data-count]');
         if (!counters.length) return;
@@ -246,8 +204,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const el = entry.target;
-                    const target = parseInt(el.dataset.count, 10);
-                    animateCount(el, target, el.dataset.suffix || '');
+                    animateCount(el, parseInt(el.dataset.count, 10), el.dataset.suffix || '');
                     observer.unobserve(el);
                 }
             });
@@ -259,59 +216,78 @@
     function initTypewriter() {
         const el = document.getElementById('typewriter');
         if (!el) return;
-        const phrases = [
-            'Full Stack Developer',
-            'NestJS & Node.js Backend',
-            'React Frontend Engineer',
-            'Freelance / 3 Years Experience'
-        ];
+        const phrases = ['Full Stack Developer', 'NestJS & Node.js Backend', 'React Frontend Engineer', 'Freelance / 3 Years Experience'];
         if (prefersReducedMotion) { el.textContent = phrases[0]; return; }
-
         let phraseIndex = 0, charIndex = 0, deleting = false;
         function tick() {
             const phrase = phrases[phraseIndex];
             if (!deleting) {
-                charIndex++;
-                el.textContent = phrase.slice(0, charIndex);
-                if (charIndex === phrase.length) {
-                    deleting = true;
-                    setTimeout(tick, 1400);
-                    return;
-                }
+                charIndex++; el.textContent = phrase.slice(0, charIndex);
+                if (charIndex === phrase.length) { deleting = true; setTimeout(tick, 1400); return; }
             } else {
-                charIndex--;
-                el.textContent = phrase.slice(0, charIndex);
-                if (charIndex === 0) {
-                    deleting = false;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                }
+                charIndex--; el.textContent = phrase.slice(0, charIndex);
+                if (charIndex === 0) { deleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; }
             }
             setTimeout(tick, deleting ? 35 : 65);
         }
         tick();
     }
 
-    /* ---------------- nav ---------------- */
-    function initNav() {
-        const header = document.getElementById('site-header');
-        const toggle = document.getElementById('nav-toggle');
-        const menu = document.getElementById('nav-menu');
-
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 40);
-        });
-
-        if (toggle && menu) {
-            toggle.addEventListener('click', () => menu.classList.toggle('active'));
-            menu.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => menu.classList.remove('active'));
+    /* ---------------- orbit tooltip ---------------- */
+    function initOrbitTooltip() {
+        const system = document.getElementById('orbit-system');
+        const tooltip = document.getElementById('orbit-tooltip');
+        if (!system || !tooltip) return;
+        const nameEl = document.getElementById('orbit-tooltip-name');
+        const levelEl = document.getElementById('orbit-tooltip-level');
+        system.querySelectorAll('.orbit-node').forEach(node => {
+            const inner = node.querySelector('.orbit-node-inner');
+            inner.addEventListener('mouseenter', () => {
+                nameEl.textContent = node.dataset.name;
+                levelEl.textContent = node.dataset.level;
+                tooltip.classList.add('show');
             });
-        }
+            inner.addEventListener('mouseleave', () => tooltip.classList.remove('show'));
+        });
+    }
 
+    /* ---------------- HUD: clock, section label, scroll progress ---------------- */
+    function initHud() {
+        const clock = document.getElementById('hud-clock');
+        function tickClock() {
+            if (!clock) return;
+            const now = new Date();
+            const fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+            clock.textContent = fmt.format(now) + ' IST';
+        }
+        tickClock();
+        setInterval(tickClock, 1000);
+
+        const sections = document.querySelectorAll('main .section, .hero-section');
+        const sectionLabel = document.getElementById('hud-section');
+        const navLinks = document.querySelectorAll('.nav-rail-link');
+        const fill = document.getElementById('scroll-fill');
+
+        function onScroll() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            if (fill) fill.style.width = Math.min((scrollTop / docHeight) * 100, 100) + '%';
+
+            let current = sections[0];
+            sections.forEach(sec => { if (scrollTop >= sec.offsetTop - window.innerHeight * 0.4) current = sec; });
+            const id = current.id || 'hero';
+            if (sectionLabel) sectionLabel.textContent = '§ ' + id.toUpperCase();
+            navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + id));
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    }
+
+    /* ---------------- nav smooth scroll ---------------- */
+    function initNav() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                const target = document.querySelector(targetId);
+                const target = document.querySelector(this.getAttribute('href'));
                 if (!target) return;
                 e.preventDefault();
                 target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
@@ -319,16 +295,41 @@
         });
     }
 
-    /* ---------------- scroll progress ---------------- */
-    function initScrollProgress() {
-        const bar = document.createElement('div');
-        bar.className = 'scroll-progress';
-        bar.innerHTML = '<div class="scroll-progress-fill"></div>';
-        document.body.appendChild(bar);
-        const fill = bar.querySelector('.scroll-progress-fill');
-        window.addEventListener('scroll', () => {
-            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            fill.style.width = Math.min(scrolled, 100) + '%';
+    /* ---------------- project deck: drag-scroll + arrows ---------------- */
+    function initProjectDeck() {
+        const deck = document.getElementById('project-deck');
+        const prevBtn = document.getElementById('deck-prev');
+        const nextBtn = document.getElementById('deck-next');
+        const progressFill = document.getElementById('deck-progress-fill');
+        if (!deck) return;
+
+        function cardWidth() {
+            const card = deck.querySelector('.featured-card');
+            return card ? card.getBoundingClientRect().width + 22 : 300;
+        }
+        prevBtn && prevBtn.addEventListener('click', () => deck.scrollBy({ left: -cardWidth(), behavior: 'smooth' }));
+        nextBtn && nextBtn.addEventListener('click', () => deck.scrollBy({ left: cardWidth(), behavior: 'smooth' }));
+
+        function updateProgress() {
+            const max = deck.scrollWidth - deck.clientWidth;
+            const pct = max > 0 ? (deck.scrollLeft / max) * 100 : 0;
+            if (progressFill) progressFill.style.width = Math.max(pct, 8) + '%';
+        }
+        deck.addEventListener('scroll', updateProgress, { passive: true });
+        updateProgress();
+
+        let isDown = false, startX, scrollLeft;
+        deck.addEventListener('mousedown', (e) => {
+            isDown = true; deck.classList.add('dragging');
+            startX = e.pageX - deck.offsetLeft; scrollLeft = deck.scrollLeft;
+        });
+        window.addEventListener('mouseup', () => { isDown = false; deck.classList.remove('dragging'); });
+        deck.addEventListener('mouseleave', () => { isDown = false; deck.classList.remove('dragging'); });
+        deck.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - deck.offsetLeft;
+            deck.scrollLeft = scrollLeft - (x - startX) * 1.4;
         });
     }
 
@@ -339,47 +340,37 @@
         notification.innerHTML = `<div class="notification-content"><i class="fas ${type === 'error' ? 'fa-exclamation-circle' : 'fa-check-circle'}"></i><span>${message}</span></div>`;
         document.body.appendChild(notification);
         setTimeout(() => notification.classList.add('show'), 50);
-        setTimeout(() => {
-            notification.classList.remove('show');
-            setTimeout(() => notification.remove(), 350);
-        }, 4500);
+        setTimeout(() => { notification.classList.remove('show'); setTimeout(() => notification.remove(), 350); }, 4500);
     }
 
-    /* ---------------- contact form (mailto, no backend) ---------------- */
+    /* ---------------- contact form (mailto) ---------------- */
     function initContactForm() {
         const form = document.getElementById('contact-form');
         if (!form) return;
         const submitBtn = form.querySelector('.btn-submit');
-
         function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-
-        function showFieldError(field, message) {
+        function showFieldError(field, id) {
             field.classList.add('error');
-            const err = field.parentNode.querySelector('.form-error');
-            if (err) { err.textContent = message; err.classList.add('show'); }
+            const err = document.getElementById(id);
+            if (err) err.classList.add('show');
         }
-        function clearFieldError(field) {
+        function clearFieldError(field, id) {
             field.classList.remove('error');
-            const err = field.parentNode.querySelector('.form-error');
+            const err = document.getElementById(id);
             if (err) err.classList.remove('show');
         }
-
-        form.querySelectorAll('.form-input, .form-textarea').forEach(input => {
-            input.addEventListener('input', () => clearFieldError(input));
+        const name = form.querySelector('#name'), email = form.querySelector('#email'), message = form.querySelector('#message');
+        [[name, 'name-error'], [email, 'email-error'], [message, 'message-error']].forEach(([field, errId]) => {
+            field.addEventListener('input', () => clearFieldError(field, errId));
         });
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = form.querySelector('#name');
-            const email = form.querySelector('#email');
-            const message = form.querySelector('#message');
             let valid = true;
-
-            [name, email, message].forEach(clearFieldError);
-
-            if (!name.value.trim()) { showFieldError(name, 'Please enter your name'); valid = false; }
-            if (!email.value.trim() || !isValidEmail(email.value.trim())) { showFieldError(email, 'Please enter a valid email address'); valid = false; }
-            if (!message.value.trim()) { showFieldError(message, 'Please enter your message'); valid = false; }
+            clearFieldError(name, 'name-error'); clearFieldError(email, 'email-error'); clearFieldError(message, 'message-error');
+            if (!name.value.trim()) { showFieldError(name, 'name-error'); valid = false; }
+            if (!email.value.trim() || !isValidEmail(email.value.trim())) { showFieldError(email, 'email-error'); valid = false; }
+            if (!message.value.trim()) { showFieldError(message, 'message-error'); valid = false; }
             if (!valid) return;
 
             submitBtn.disabled = true;
@@ -394,12 +385,12 @@
     /* ---------------- GitHub live data ---------------- */
     const GITHUB_USERNAME = 'vsmm-world';
     const GITHUB_API_BASE = 'https://api.github.com';
-
     const LANG_COLORS = {
-        JavaScript: '#f1e05a', TypeScript: '#3178c6', Python: '#3572A5',
-        HTML: '#e34c26', CSS: '#563d7c', Java: '#b07219', PHP: '#4F5D95',
-        Kotlin: '#A97BFF', EJS: '#a91e50', Dockerfile: '#384d54', Shell: '#89e051'
+        JavaScript: '#f1e05a', TypeScript: '#3178c6', Python: '#3572A5', HTML: '#e34c26',
+        CSS: '#563d7c', Java: '#b07219', PHP: '#8993be', Kotlin: '#a97bff', EJS: '#ff2bd6',
+        Dockerfile: '#384d54', Shell: '#89e051'
     };
+    const GAUGE_CIRC = 2 * Math.PI * 52;
 
     async function fetchJSON(url) {
         const res = await fetch(url);
@@ -407,138 +398,122 @@
         return res.json();
     }
 
-    function setStat(id, value, suffix) {
-        const el = document.getElementById(id);
-        if (!el) return;
-        const target = Number(value) || 0;
+    function setGauge(id, rawValue, softCap) {
+        const numEl = document.getElementById(id);
+        if (!numEl) return;
+        const target = Number(rawValue) || 0;
+        const gauge = numEl.closest('.gauge');
+        const fillCircle = gauge ? gauge.querySelector('.gauge-fill') : null;
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    animateCount(el, target, suffix || '');
-                    observer.unobserve(el);
+                    animateCount(numEl, target, '');
+                    if (fillCircle) {
+                        const ratio = Math.min(target / softCap, 1);
+                        const offset = GAUGE_CIRC * (1 - ratio);
+                        requestAnimationFrame(() => { fillCircle.style.strokeDashoffset = offset; });
+                    }
+                    observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.4 });
-        observer.observe(el);
+        observer.observe(numEl);
     }
 
-    function renderLanguages(repos) {
-        const container = document.getElementById('gh-languages');
-        if (!container) return;
+    function renderDonut(repos) {
+        const svg = document.getElementById('donut-svg');
+        const legend = document.getElementById('donut-legend');
+        if (!svg || !legend) return;
         const counts = {};
-        repos.forEach(r => {
-            if (r.fork) return;
-            if (!r.language) return;
-            counts[r.language] = (counts[r.language] || 0) + 1;
-        });
+        repos.forEach(r => { if (!r.fork && r.language) counts[r.language] = (counts[r.language] || 0) + 1; });
         const total = Object.values(counts).reduce((a, b) => a + b, 0) || 1;
-        const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 8);
+        const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 6);
 
         if (!sorted.length) {
-            container.innerHTML = '<p class="section-subtitle" style="margin:0;">No language data available.</p>';
+            legend.innerHTML = '<p style="color:var(--text-faint);font-size:0.8rem;">No language data available.</p>';
             return;
         }
 
-        container.innerHTML = sorted.map(([lang, count]) => {
-            const pct = ((count / total) * 100).toFixed(1);
-            const color = LANG_COLORS[lang] || '#8b93ac';
-            return `
-                <div class="gh-lang-row">
-                    <span class="gh-lang-name">${lang}</span>
-                    <span class="gh-lang-bar-track"><span class="gh-lang-bar-fill" style="background:${color}" data-width="${pct}"></span></span>
-                    <span class="gh-lang-pct">${pct}%</span>
-                </div>`;
-        }).join('');
-
-        requestAnimationFrame(() => {
-            container.querySelectorAll('.gh-lang-bar-fill').forEach(fill => {
-                fill.style.width = fill.dataset.width + '%';
-            });
+        const r = 52, circ = 2 * Math.PI * r;
+        let offsetAcc = 0;
+        svg.innerHTML = `<circle cx="60" cy="60" r="${r}" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="14"/>`;
+        sorted.forEach(([lang, count], i) => {
+            const pct = count / total;
+            const dash = pct * circ;
+            const color = LANG_COLORS[lang] || `hsl(${(i * 57) % 360}, 70%, 60%)`;
+            const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            circle.setAttribute('cx', 60); circle.setAttribute('cy', 60); circle.setAttribute('r', r);
+            circle.setAttribute('fill', 'none'); circle.setAttribute('stroke', color);
+            circle.setAttribute('stroke-width', 14);
+            circle.setAttribute('stroke-dasharray', `${dash} ${circ - dash}`);
+            circle.setAttribute('stroke-dashoffset', -offsetAcc);
+            circle.style.transition = 'stroke-dasharray 1s ease';
+            svg.appendChild(circle);
+            offsetAcc += dash;
         });
+
+        legend.innerHTML = sorted.map(([lang, count], i) => {
+            const pct = ((count / total) * 100).toFixed(1);
+            const color = LANG_COLORS[lang] || `hsl(${(i * 57) % 360}, 70%, 60%)`;
+            return `<div class="donut-legend-row"><span class="donut-dot" style="background:${color}"></span><span class="donut-name">${lang}</span><span class="donut-pct">${pct}%</span></div>`;
+        }).join('');
     }
 
-    function renderTopRepoCards(repos) {
-        const grid = document.getElementById('github-projects');
-        if (!grid) return;
-        const top = [...repos]
-            .filter(r => !r.fork || r.stargazers_count > 0)
-            .sort((a, b) => (b.stargazers_count - a.stargazers_count) || (new Date(b.updated_at) - new Date(a.updated_at)))
-            .slice(0, 6);
+    function escapeHTML(str) { const div = document.createElement('div'); div.textContent = str; return div.innerHTML; }
 
-        if (!top.length) { grid.innerHTML = '<p class="section-subtitle">No repositories found.</p>'; return; }
-
-        grid.innerHTML = top.map(repo => `
-            <div class="project-card tilt">
-                <div class="project-header">
-                    <h3 class="project-title">${repo.name}</h3>
-                    <span class="project-meta">${new Date(repo.updated_at).toLocaleDateString()}</span>
-                </div>
-                <p class="project-description">${repo.description ? escapeHTML(repo.description) : 'No description available.'}</p>
-                <div class="project-stats">
-                    <span class="stat-item"><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
-                    <span class="stat-item"><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
-                    <span class="stat-item"><i class="fas fa-eye"></i> ${repo.watchers_count}</span>
-                </div>
-                <div class="project-links">
-                    <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm magnetic">
-                        <i class="fab fa-github"></i> View Code
-                    </a>
-                </div>
-            </div>
-        `).join('');
-
-        initTilt();
+    function renderRepoTicker(repos) {
+        const ticker = document.getElementById('repo-ticker');
+        if (!ticker) return;
+        const top = [...repos].sort((a, b) => (b.stargazers_count - a.stargazers_count) || (new Date(b.updated_at) - new Date(a.updated_at))).slice(0, 8);
+        if (!top.length) { ticker.innerHTML = '<p style="color:var(--text-faint);font-size:0.8rem;">No repositories found.</p>'; return; }
+        ticker.innerHTML = top.map(repo => `
+            <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="repo-ticker-row magnetic">
+                <span class="repo-ticker-name">${repo.name}</span>
+                <span class="repo-ticker-stats"><i class="fas fa-star"></i> ${repo.stargazers_count} &nbsp; <i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
+            </a>`).join('');
         initMagnetic();
     }
 
-    function escapeHTML(str) {
-        const div = document.createElement('div');
-        div.textContent = str;
-        return div.innerHTML;
-    }
-
     async function initGitHubData() {
-        const grid = document.getElementById('github-projects');
-        const langBox = document.getElementById('gh-languages');
         try {
             const [profile, repos] = await Promise.all([
                 fetchJSON(`${GITHUB_API_BASE}/users/${GITHUB_USERNAME}`),
                 fetchJSON(`${GITHUB_API_BASE}/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`)
             ]);
-
             const totalStars = repos.reduce((sum, r) => sum + (r.stargazers_count || 0), 0);
             const totalForks = repos.reduce((sum, r) => sum + (r.forks_count || 0), 0);
 
-            setStat('gh-public-repos', profile.public_repos);
-            setStat('gh-total-stars', totalStars);
-            setStat('gh-followers', profile.followers);
-            setStat('gh-total-forks', totalForks);
-            setStat('stat-repos', profile.public_repos, '+');
+            setGauge('gh-public-repos', profile.public_repos, 50);
+            setGauge('gh-total-stars', totalStars, 50);
+            setGauge('gh-followers', profile.followers, 30);
+            setGauge('gh-total-forks', totalForks, 40);
 
-            renderLanguages(repos);
-            renderTopRepoCards(repos);
+            const repoStatEl = document.getElementById('stat-repos');
+            if (repoStatEl) {
+                const obs = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => { if (entry.isIntersecting) { animateCount(repoStatEl, profile.public_repos, '+'); obs.unobserve(entry.target); } });
+                }, { threshold: 0.4 });
+                obs.observe(repoStatEl);
+            }
+
+            renderDonut(repos);
+            renderRepoTicker(repos);
         } catch (error) {
             console.error('GitHub data fetch failed:', error);
-            if (grid) {
-                grid.innerHTML = `
-                    <div class="error-message">
-                        <i class="fas fa-exclamation-circle"></i>
-                        <p>Couldn't reach the GitHub API right now (rate limit or network issue).</p>
-                        <button onclick="location.reload()" class="btn-retry">Retry</button>
-                    </div>`;
-            }
-            if (langBox) langBox.innerHTML = '<p class="section-subtitle" style="margin:0;">Unavailable right now.</p>';
+            const legend = document.getElementById('donut-legend');
+            const ticker = document.getElementById('repo-ticker');
+            const msg = `<div class="error-message"><i class="fas fa-exclamation-circle"></i><p>Couldn't reach the GitHub API (rate limit or network issue).</p><button onclick="location.reload()" class="btn-retry">Retry</button></div>`;
+            if (legend) legend.innerHTML = msg;
+            if (ticker) ticker.innerHTML = '';
         }
     }
 
     /* ---------------- footer ---------------- */
     function initFooter() {
+        const updateEl = document.getElementById('update-date');
+        if (updateEl) updateEl.textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
         const yearEl = document.getElementById('footer-year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
-        const updateEl = document.getElementById('update-date');
-        if (updateEl) {
-            updateEl.textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-        }
     }
 
     /* ---------------- boot everything ---------------- */
@@ -549,11 +524,12 @@
         initTilt();
         initMagnetic();
         initScrollReveal();
-        initSkillBars();
         initCounters();
         initTypewriter();
+        initOrbitTooltip();
+        initHud();
         initNav();
-        initScrollProgress();
+        initProjectDeck();
         initContactForm();
         initFooter();
         initGitHubData();
